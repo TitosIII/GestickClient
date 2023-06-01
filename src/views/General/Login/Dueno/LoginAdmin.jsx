@@ -1,9 +1,11 @@
-import { Form, Formik } from 'formik'
+import { Form, Formik } from 'formik';
+import * as yup from "yup";
+import { Box, Button, TextField } from "@mui/material";
 import { logAdmin } from '../../../../api/gestick.api'
 import { useState, useEffect } from "react";
 import Session from "react-session-api";
 import ClockLoader from "react-spinners/ClockLoader"
-import toast, {Toaster} from "react-hot-toast"
+import toast, { Toaster } from "react-hot-toast"
 import Footer from '../../../components/micro_components/Footer';
 
 export default function LoginAdmin() {
@@ -11,12 +13,12 @@ export default function LoginAdmin() {
 
     useEffect(() => {
         if (document.readyState === "complete") {
-          setLoading(false);
+            setLoading(false);
         }
-      }, [])
-    
-        window.addEventListener("load", () => setLoading(false));
-        console.log(loading);
+    }, [])
+
+    window.addEventListener("load", () => setLoading(false));
+    console.log(loading);
 
     const [message, setMessage] = useState("");
 
@@ -30,12 +32,17 @@ export default function LoginAdmin() {
         modal.classList.remove('modal--show')
     }
 
+    const checkoutSchema = yup.object().shape({
+        idAdmin: yup.string().required("Campo Obligatorio").min(6, `Ingresa Un ID Completo`).max(6, `Ingresa Un ID De 6 Digitos`),
+        password: yup.string().required("Campo Obligatorio").min(8, `Ingresa Más De 7 Digitos`).max(150, `Ingresa Una Contraseña Valida`),
+      });
+
     return (
         <section id='login'>
             <div><Toaster
-                                            position="bottom-right"
-                                            reverseOrder={false}
-                                        /></div>
+                position="bottom-right"
+                reverseOrder={false}
+            /></div>
             {
                 loading ?
 
@@ -88,6 +95,7 @@ export default function LoginAdmin() {
                                     </div>
                                     <div className="formbg-outer">
                                         <Formik
+                                            validationSchema={checkoutSchema}
                                             initialValues={{
                                                 idAdmin: null,
                                                 password: null
@@ -119,20 +127,27 @@ export default function LoginAdmin() {
                                                 }
                                             }}
                                         >
-                                            {({ handleChange, handleSubmit, isSubmitting }) => (
+                                            {({ values,
+                                                errors,
+                                                touched,
+                                                isSubmitting,
+                                                handleBlur,
+                                                handleChange,
+                                                handleSubmit,
+                                                setFieldValue }) => (
                                                 <Form onSubmit={handleSubmit}>
                                                     <div className="formbg">
                                                         <div className="formbg-inner padding-horizontal--48">
                                                             <span id="spanLogin" className="padding-bottom--15">Iniciar sesion Administrador</span>
                                                             <div className="field padding-bottom--24">
                                                                 <label id="labelLogin" htmlFor="idAdmin">ID Administrador O Nombre De Usuario</label>
-                                                                <input type="idAdmin" name="idAdmin" id="idAdmin" required onChange={handleChange} />
+                                                                <TextField fullWidth type="text" name="idAdmin" id="idAdmin" required onChange={handleChange} onBlur={handleBlur} error={!!touched.idAdmin && !!errors.idAdmin} helperText={touched.idAdmin && errors.idAdmin} />
                                                             </div>
                                                             <div className="field padding-bottom--24">
                                                                 <div className="grid--50-50">
                                                                     <label id="labelLogin" htmlFor="AdContrasenna">Contraseña</label>
                                                                 </div>
-                                                                <input type="password" name="password" id="password" required onChange={handleChange} />
+                                                                <TextField fullWidth type="password" name="password" id="password" required onChange={handleChange} onBlur={handleBlur} error={!!touched.password && !!errors.password} helperText={touched.password && errors.password}/>
                                                             </div>
                                                             <div className="field field-checkbox padding-bottom--24 flex-flex align-center">
                                                                 {message}
@@ -153,13 +168,13 @@ export default function LoginAdmin() {
                                                 <span id="spanLogin"><a id="linksLogin" href="LoginEmpleado">¿Eres Empleado?</a></span>
                                                 <span id="spanLogin"><a id="linksLogin" href="#" className="terms__cta" onClick={showModal}>Terminos y privacidad</a></span>
                                             </div>
-                                            <section> <div className="FooterE"> <Footer/></div></section>
+                                            <section> <div className="FooterE"> <Footer /></div></section>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <section className="modal">
                             <div className="modal__container">
                                 <div className="part_container">
@@ -199,13 +214,13 @@ export default function LoginAdmin() {
                                 <a href="#" className="modal__close" onClick={closeModal}>Aceptar terminos y condiciones</a>
                             </div>
                         </section>
-                        
+
                     </section>
 
             }
- 
+
         </section >
-            
-          
+
+
     )
 }

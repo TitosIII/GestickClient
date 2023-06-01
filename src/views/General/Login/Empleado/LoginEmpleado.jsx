@@ -1,23 +1,25 @@
 import { useRef, useEffect, useState } from "react";
+import * as yup from "yup";
+import { Box, Button, TextField } from "@mui/material";
 import { Formik, Form } from "formik";
 import { logEmp } from "../../../../api/gestick.api";
 import Session from "react-session-api";
 import ClockLoader from "react-spinners/ClockLoader"
-import toast, {Toaster} from "react-hot-toast"
+import toast, { Toaster } from "react-hot-toast"
 import Footer from "../../../components/micro_components/Footer";
 
 export default function LoginEmpleado() {
 
   const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (document.readyState === "complete") {
-          setLoading(false);
-        }
-      }, [])
-    
-        window.addEventListener("load", () => setLoading(false));
-        console.log(loading);
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setLoading(false);
+    }
+  }, [])
+
+  window.addEventListener("load", () => setLoading(false));
+  console.log(loading);
 
   const [message, setMessage] = useState("");
 
@@ -31,12 +33,17 @@ export default function LoginEmpleado() {
     modal.classList.remove("modal--show");
   };
 
+  const checkoutSchema = yup.object().shape({
+    idEmp: yup.string().required("Campo Obligatorio").min(6, `Ingresa Un ID Completo`).max(6, `Ingresa Un ID De 6 Digitos`),
+    password: yup.string().required("Campo Obligatorio").min(8, `Ingresa Más De 7 Digitos`).max(150, `Ingresa Una Contraseña Valida`),
+  });
+
   return (
     <section id="login">
       <div><Toaster
-                                            position="bottom-right"
-                                            reverseOrder={false}
-                                        /></div>
+        position="bottom-right"
+        reverseOrder={false}
+      /></div>
       {
         loading ?
           <div className="contenedorCarga">
@@ -130,6 +137,7 @@ export default function LoginEmpleado() {
                           Iniciar sesion empleado
                         </span>
                         <Formik
+                          validationSchema={checkoutSchema}
                           initialValues={{
                             idEmp: null,
                             password: null,
@@ -162,13 +170,21 @@ export default function LoginEmpleado() {
                             return values;
                           }}
                         >
-                          {({ handleChange, handleSubmit, isSubmitting }) => (
+                          {({ values,
+                            errors,
+                            touched,
+                            isSubmitting,
+                            handleBlur,
+                            handleChange,
+                            handleSubmit,
+                            setFieldValue }) => (
+
                             <Form onSubmit={handleSubmit}>
                               <div className="field padding-bottom--24">
                                 <label id="labelLogin" htmlFor="id">
                                   ID Empleado O Nombre De Usuario
                                 </label>
-                                <input type="idEmp" name="idEmp" id="idEmp" onChange={handleChange} />
+                                <TextField fullWidth type="idEmp" name="idEmp" id="idEmp" onChange={handleChange} onBlur={handleBlur} error={!!touched.idEmp && !!errors.idEmp} helperText={touched.idEmp && errors.idEmp} />
                               </div>
                               <div className="field padding-bottom--24">
                                 <div className="grid--50-50">
@@ -176,11 +192,10 @@ export default function LoginEmpleado() {
                                     Contraseña
                                   </label>
                                 </div>
-                                <input
+                                <TextField fullWidth onChange={handleChange} onBlur={handleBlur} error={!!touched.password && !!errors.password} helperText={touched.password && errors.password}
                                   type="password"
                                   name="password"
                                   id="password"
-                                  onChange={handleChange}
                                 />
                               </div>
                               <div className="field field-checkbox padding-bottom--24 flex-flex align-center">
@@ -214,7 +229,7 @@ export default function LoginEmpleado() {
                           </a>
                         </span>
                       </div>
-                      <div className="FooterEmpleado"><Footer/></div>
+                      <div className="FooterEmpleado"><Footer /></div>
                     </div>
                   </div>
                 </div>
@@ -277,7 +292,7 @@ export default function LoginEmpleado() {
           </section>
       }
 
-      
+
     </section>
   );
 }

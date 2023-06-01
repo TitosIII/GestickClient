@@ -51,6 +51,34 @@ export default function SingUp() {
     loadAdmin();
   }, []);
 
+  const checkoutSchema = yup.object().shape({
+    AP: yup
+      .string()
+      .required("requerido")
+      .min(3, `Ingresa Un Apellido Valido`)
+      .max(45, `Tu Apellido Es Demasiado Largo`),
+    AM: yup
+      .string()
+      .required("requerido")
+      .min(3, `Ingresa Un Apellido Valido`)
+      .max(45, `Tu Apellido Es Demasiado Largo`),
+    Name: yup
+      .string()
+      .required("requerido")
+      .min(3, `Ingresa Un Nombre Valido`)
+      .max(45, `Tu Nombre Es Demasiado Largo`),
+    PW: yup
+      .string()
+      .required("requerido")
+      .min(8, `Ingresa Una Contraseña mayor a 8 caracteres valida`)
+      .max(500, `Tu Contraseña Es Demasiada Larga`),
+    AE: yup
+      .string()
+      .required("requerido")
+      .email(`Ingresa Un Correo Electronico Valido`)
+      .max(100, `Tu Dirección Es Demasiada Larga`),
+  });
+
   return (
     <>
       {loading ? (
@@ -63,7 +91,9 @@ export default function SingUp() {
             title="Asignación de ID."
             message={`Su id es ${id}`}
             modal={modal}
-            action={()=>{window.location.href = "/Tablero"}}
+            action={() => {
+              window.location.href = "/Tablero";
+            }}
           />
           <section className="contact-box">
             <div className="row no-gutters bg-dark">
@@ -92,6 +122,7 @@ export default function SingUp() {
                   <Formik
                     initialValues={dato}
                     enableReinitialize={true}
+                    validationSchema={checkoutSchema}
                     onSubmit={async (values) => {
                       console.log(values);
 
@@ -132,7 +163,7 @@ export default function SingUp() {
                               Apellido Paterno{" "}
                               <span className="text-danger">*</span>
                             </label>
-                            <input
+                            <TextField
                               type="text"
                               className="form-control"
                               placeholder="Tu Apellido Paterno"
@@ -140,6 +171,9 @@ export default function SingUp() {
                               name="AP"
                               required
                               onChange={handleChange}
+                              onBlur={handleBlur}
+                              error={!!touched.AP && !!errors.AP}
+                              helperText={touched.AP && errors.AP}
                             />
                           </div>
                           <div className="form-group col-md-6">
@@ -147,7 +181,7 @@ export default function SingUp() {
                               Apellido Materno{" "}
                               <span className="text-danger">*</span>
                             </label>
-                            <input
+                            <TextField
                               type="text"
                               className="form-control"
                               placeholder="Tu Apellido Materno"
@@ -155,6 +189,9 @@ export default function SingUp() {
                               name="AM"
                               required
                               onChange={handleChange}
+                              onBlur={handleBlur}
+                              error={!!touched.AM && !!errors.AM}
+                              helperText={touched.AM && errors.AM}
                             />
                           </div>
                         </div>
@@ -162,7 +199,7 @@ export default function SingUp() {
                           <label className="font-weight-bold">
                             Nombre(s)<span className="text-danger">*</span>
                           </label>
-                          <input
+                          <TextField
                             type="text"
                             className="form-control"
                             placeholder="Ingresa tu(s) nombre(s)"
@@ -170,13 +207,16 @@ export default function SingUp() {
                             name="Name"
                             required
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!!touched.Name && !!errors.Name}
+                            helperText={touched.Name && errors.Name}
                           />
                         </div>
                         <div className="form-group mb-3">
                           <label className="font-weight-bold">
                             Email <span className="text-danger">*</span>
                           </label>
-                          <input
+                          <TextField
                             type="email"
                             className="form-control"
                             placeholder="Ingresa tu correo Electronico"
@@ -184,13 +224,16 @@ export default function SingUp() {
                             name="AE"
                             required
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!!touched.AE && !!errors.AE}
+                            helperText={touched.AE && errors.AE}
                           />
                         </div>
                         <div className="form-group mb-3">
                           <label className="font-weight-bold">
                             Contraseña <span className="text-danger">*</span>
                           </label>
-                          <input
+                          <TextField
                             type="password"
                             className="form-control"
                             placeholder="Ingresa una contraseña"
@@ -198,6 +241,9 @@ export default function SingUp() {
                             name="PW"
                             required
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!!touched.PW && !!errors.PW}
+                            helperText={touched.PW && errors.PW}
                           />
                         </div>
                         <div className="form-group mb-5">
@@ -205,6 +251,7 @@ export default function SingUp() {
                             <input
                               className="form-check-input"
                               type="checkbox"
+                              required
                             />
                             <label className="form-check-label text-muted">
                               Al seleccionar esta casilla aceptas nuestro{" "}

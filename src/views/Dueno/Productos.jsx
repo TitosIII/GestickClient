@@ -13,7 +13,8 @@ import Uploader from "../components/micro_components/Uploader.jsx";
 import { useParams } from "react-router-dom";
 import { getTradeMark } from "../../api/gestick.api.js";
 import { modifyProduct } from "../../api/gestick.api.js";
-import Header from "../components/micro_components/Header.jsx";
+import * as yup from "yup";
+import { Box, Button, TextField, Autocomplete } from "@mui/material";
 
 export default function Productos() {
   const { idProduct } = useParams();
@@ -89,6 +90,11 @@ export default function Productos() {
     );
   }, []);
 
+  const checkoutSchema = yup.object().shape({
+    idAdmin: yup.string().required("Campo Obligatorio").min(6, `Ingresa Un ID Completo`).max(6, `Ingresa Un ID De 6 Digitos`),
+    password: yup.string().required("Campo Obligatorio").min(8, `Ingresa Más De 7 Digitos`).max(150, `Ingresa Una Contraseña Valida`),
+  });
+
   if (Session.get("type") == 1) {
     return (
       <>
@@ -98,9 +104,7 @@ export default function Productos() {
           </div>
         ) : (
           <section>
-            {idProduct ?
-              <HeaderPro /> :
-              <Header/>}
+            <HeaderPro />
 
             <Formik
               enableReinitialize
@@ -149,6 +153,7 @@ export default function Productos() {
                             Descripción Del Producto:{" "}
                           </label>
                           <textarea
+                            style={{ resize: "none" }}
                             class="form-control-P"
                             name="desc"
                             id="DescripcionPro"
@@ -256,6 +261,7 @@ export default function Productos() {
                         >
                           Marca:{" "}
                         </label>
+                        
                         <select
                           type="text"
                           class="form-control-P"
@@ -267,13 +273,15 @@ export default function Productos() {
                           value={values.tradeMark}
                           onChange={handleChange}
                         >
-                          <option defaultValue="true" disabled="disabled">
+                          <option selected="true" disabled="disabled">
                             Seleccione Marca
                           </option>
                           {tradeMarkList.map((row) => (
                             <option value={row.idMarca}>{row.MarNombre}</option>
                           ))}
                         </select>
+                        
+
                       </div>
                       <div className="PrecioVentaContenedor">
                         <label
@@ -310,9 +318,10 @@ export default function Productos() {
                       <button className="BotonCrearProducto" type="submit">
                         <span>{idProduct ? "Editar" : "Crear"}</span>
                       </button>
-                      <a href="/InventarioProductos" className="btnCancel">
-                        <span>Cancelar</span>
-                      </a>
+                      <button className="BotonCancelarProducto">
+                        {" "}
+                        <span>Cancelar</span>{" "}
+                      </button>
                     </section>
                   </section>
                 </form>
