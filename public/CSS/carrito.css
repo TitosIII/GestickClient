@@ -1,0 +1,124 @@
+.col-sm-4 {
+    color: #ffffff;
+    background-color: rgba(160, 150, 150, 0.2);
+    border: 5px solid rgba(22, 22, 22, 0.893);
+    margin: 7px;
+    width: 39%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding: 10px 20px;
+    max-width: 40%;
+}
+
+.col-sm-8 {
+    width: 60%;
+    color: #000000;
+    background-color: #1f232b;
+    max-height: 400px;
+    height: 240px;
+}
+
+.btn {
+    color: #ffffff;
+    padding: 3px 20px;
+    margin-left: 6px;
+    border: 3px solid #011c3a;
+    transition: all 0.4s;
+    font-weight: 400;
+    min-width: 0;
+    margin-bottom: 8px;
+    background: #757575cb;
+}
+
+.btn.btn-buy {
+    margin: -35px;
+    margin-bottom: -25px;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #342dbb;
+    --bs-btn-hover-border-color: #1b1375;
+}
+
+.btn-sell {
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #32bb2d;
+    --bs-btn-hover-border-color: #137516;
+}
+
+.btn-delete {
+    margin-left: 210px;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #bb2d2d;
+    --bs-btn-hover-border-color: #5e0f0f;
+}
+
+.btn.btn-remover {
+    --btn-hover-color: rgb(255, 0, 0);
+    --bs-btn-hover-bg: #bb2d2d;
+    --bs-btn-hover-border-color: #5e0f0f;
+}
+
+.cardCarrito-body {
+    padding: 5px;
+    text-align: center;
+}
+
+div.cardCarrito.col-sm-4 {
+    width: 20%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 250px;
+    border-radius: 40px;
+}
+
+.row {
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.img-fluid {
+    height: 80px;
+    width: 100px;
+}
+
+.list-group-item {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+    border-color: #000000;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.Buscador {
+    border-radius: 30px;
+
+    text-align: center;
+    align-content: center;
+}
+
+.camara {
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(160, 150, 150, 0.2);
+    border: 5px solid rgba(22, 22, 22, 0.893);
+    margin: 7px;
+    width: 39%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding: 10px 20px;
+    max-width: 40%;
+}
+
+.pantalla {
+    color: #ffffff;
+    background-color: rgba(160, 150, 150, 0.2);
+    border: 5px solid rgba(22, 22, 22, 0.893);
+    margin: 7px;
+    width: 450px;
+    height: 200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding: 10px 20px;
+}
+
+/*----------------------------------------------  -------------------------------------------------*/

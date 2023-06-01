@@ -1,0 +1,112 @@
+.cardscontainer {
+    margin-top: 5%;
+    width: 100%;
+    background-color: #ffffff00;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.articuloIMG {
+    width: 225px;
+    height: 225px;
+}
+
+.espaciado{
+    position: relative;
+    left: -8%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 13rem;
+    background-color: black;
+    width: 75%;
+    height: 2px;
+}
+
+
+.card {
+    width: 248.11px;
+    height: 365.52px;
+    border-radius: 7px;
+
+    margin-left: 5%;
+
+    margin-top: 3rem;
+    margin-bottom: 113px;
+    padding: 20px 10px;
+
+    background-color: #e6e6e6;
+    transition: all 400ms ease;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.card:hover {
+    filter: drop-shadow(0px 8px 8px rgba(0, 109, 128, 0.592));
+    transform: translateY(-3%);
+}
+
+.cont-tarjeta__logo {
+    height: 225px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#PrecioOferta {
+    font-style: Light;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 21px;
+
+    text-decoration: line-through;
+
+    margin-bottom: 19px;
+
+    color: #333;
+}
+
+#PrecioDemanda {
+    font-style: medium;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 32px;
+
+    margin-bottom: 19px;
+
+    color: #00A2E8;
+}
+
+#PrecioDemanda-SIN {
+    font-style: medium;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 32px;
+
+    margin-bottom: 19px;
+
+    color: #333;
+}
+
+.icono-Carta {
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 24px;
+}
+
+#Nombre {
+    font-style: regular;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+
+    color: #333;
+}

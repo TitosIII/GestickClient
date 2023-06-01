@@ -1,0 +1,94 @@
+/*Equipo*/
+
+#contenedorNormal{
+    display: inline;
+    justify-content: center;
+}
+
+.contenedor {
+    margin-top: 100px;
+    position: relative;
+    width: 98.6vw;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#equipo {
+    padding: 50px 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#equipo img {
+    border-radius: 100%;
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+    border-color: #01A7C2;
+}
+
+#equipo div {
+    padding: 30px 30px;
+}
+
+#equipo div h4 {
+    color: #01A7C2;
+    font-size: 20px;
+    margin: 15px 0px;
+}
+
+#equipo div p {
+    color: #ffffff87;
+    font-size: 18px;
+}
+
+.saber-mas {
+    display: inline-block;
+    text-decoration: none;
+    color: #01A7C2;
+    padding: 10px 30px;
+    border: 3px solid #01A7C2;
+    border-radius: 30px;
+    margin-top: 15px;
+    transition: all 0.4s;
+}
+
+.saber-mas:hover {
+    background: rgba(100, 191, 191, 0.6);
+    color: #01A7C2;
+}
+
+/*Mision, Vision, Como nace*/
+
+#nosotros div {
+    display: block;
+    position: relative;
+    left: 700px;
+    margin: 50px;
+    width: 1231px;
+    height: 459px;
+    left: 129px;
+    background-color: rgba(196, 196, 196, 0.4);
+    border-radius: 50px;
+    padding: 30px;
+}
+
+#nosotros div h3 {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #01A7C2;
+}
+
+#nosotros div p {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #000000;
+}

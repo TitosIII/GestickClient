@@ -1,0 +1,26 @@
+.UploaderFORM{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    width: 650px;
+    height: 650px;
+    padding: 30px;
+    background: #fff;
+    border: 5px dashed #01a7c2;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2);
+    cursor: pointer;
+}
+
+.uploaded-row{
+
+    margin: 10px 10px 10px 50px;
+    width: 650px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #01a7c2;
+}

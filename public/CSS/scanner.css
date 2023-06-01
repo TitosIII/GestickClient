@@ -1,0 +1,33 @@
+.CamaraS {
+    font-family: sans-serif;
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.containerCamara {
+    position: relative;
+}
+
+.containerCamara,
+#interactive.viewport {
+    width: 450px;
+    height: 300px;
+}
+
+#interactive.viewport canvas,
+video {
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#interactive.viewport canvas.drawingBuffer,
+video.drawingBuffer {
+    width: 450px;
+    height: 300px;
+}

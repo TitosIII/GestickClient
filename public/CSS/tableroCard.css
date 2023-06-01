@@ -1,0 +1,48 @@
+
+.tarjetaTablero{
+    width: 500px;
+    height: 250px;
+    display: flex;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 10px #033f49;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+.imgTarjetaTablero{
+    background: url("Decoration/Anuncio_1.webp");
+    width: 40%;
+    height: 100%;
+    background-size: cover no-repeat;
+}
+
+.contentTarjetaTablero{
+    width: 60%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px 150px 50px;
+    padding: 10px 15px;
+}
+
+.tituloTarjetaTablero h3{
+    color: #01a7c2;
+}
+
+.tituloTarjetaTablero span{
+    color: #033f49;
+    font-size: 12px;
+}
+
+.textoTarjetaTablero p{
+
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 15px;
+}
+
+.btn-containerTarjetaTablero button{
+    background: #01a7c2;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 5px;
+}
