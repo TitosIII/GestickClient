@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../../../public/CSS/CSS_Gestick.css";
 import Header from "../../components/micro_components/Header.jsx";
 import Camara from "../../components/micro_components/Camara.jsx";
@@ -6,6 +6,7 @@ import SearchComponent from "../../components/micro_components/SearchComponent";
 import ClockLoader from "react-spinners/ClockLoader";
 import Session from "react-session-api";
 import { getProducts, procesSale } from "../../../api/gestick.api";
+import ConfirmModal from "../../components/micro_components/ConfirmModal";
 
 ///Lista de productos en el carrito.
 let codeCart = [];
@@ -17,6 +18,9 @@ function Cart() {
 
   const [carrito, setCarrito] = useState([]); ///Los productos seleccionados para vender.
   const [table, setTable] = useState([]); ///Los productos de la base de datos///
+
+  const modal = useRef();
+  const warningModal = useRef();
 
   ///Función para renderizar el carrito.
   function renderCart(obj, add) {
@@ -80,13 +84,43 @@ function Cart() {
     setTable(data);
   }
 
+  const sendSale = async () => {
+    const { data } = await procesSale({
+      carrito,
+      total: totalPrice(),
+      id: Session.get("id"),
+      idAdmin: Session.get(Session.get("type") == 1 ? "id" : "idAdmin"),
+    });
+    if (data.error) {
+      console.log(data.error);
+      warningModal.current.style.display = "flex";
+    } else {
+      console.log(data);
+      codeCart.splice(0, codeCart.length);
+      setCarrito([]);
+      setTimeout(updateData, 30);
+    }
+  };
+
   useEffect(() => {
     updateData();
   }, []);
 
   return (
-    <section>
+    <>
       <Header />
+      <ConfirmModal
+        title={"Confirmación de Compra"}
+        message={"Dé click en 'Aceptar' para continuar."}
+        option
+        action={sendSale}
+        modal={modal}
+      />
+      <ConfirmModal
+        title={"Error"}
+        message={"Hubo un error en el servidor, vuelva a intentarlo más tarde."}
+        modal={warningModal}
+      />
       <div className="containerCarrito">
         <div className="row">
           <aside className="col-sm-4">
@@ -123,21 +157,8 @@ function Cart() {
             <button
               id="btnCarrito"
               className="btn-sell"
-              onClick={async () => {
-                const { data } = await procesSale({
-                  carrito,
-                  total: totalPrice(),
-                  id: Session.get("id"),
-                  idAdmin: Session.get(Session.get("type") == 1 ? "id" : "idAdmin"),
-                });
-                if (data.message) {
-                  console.log(data.error);
-                } else {
-                  console.log(data);
-                  codeCart.splice(0, codeCart.length);
-                  setCarrito([]);
-                  setTimeout(updateData, 30);
-                }
+              onClick={() => {
+                modal.current.style.display = "flex";
               }}
             >
               Vender
@@ -155,7 +176,15 @@ function Cart() {
           </aside>
 
           <main id="items" className="col-sm-8 row">
-            {table.length === 0?(<h1>No hay ningún producto registrado en el inventario</h1>):<SearchComponent renderCart={renderCart} baseDeDatos={table} getExistences={getExistences}/>}
+            {table.length === 0 ? (
+              <h1>No hay ningún producto registrado en el inventario</h1>
+            ) : (
+              <SearchComponent
+                renderCart={renderCart}
+                baseDeDatos={table}
+                getExistences={getExistences}
+              />
+            )}
           </main>
           <aside>
             <div className="camara">
@@ -164,7 +193,7 @@ function Cart() {
           </aside>
         </div>
       </div>
-    </section>
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
 import axios from "axios";
-import.meta.env.URL
 
-const serverURL = import.meta.env.URL || "http://localhost:3000";
+const serverURL = import.meta.env.VITE_URL || "http://localhost:3000";
 
 export const getAdminRequest = async () => {
   return await axios.get(
