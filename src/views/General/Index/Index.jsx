@@ -24,6 +24,13 @@ function Index() {
       ) : (
         <>
           <ConfirmModal message="Plan 1" modal={modal} option />
+          <div className="AppMovil"> 
+          <div className="AppMovilTitulo">Gestick</div>
+          <div className="AppMovilDescripcion">Disfruta de Gestick</div>
+          <div className="AppMovilDescripcion1">Descarga la aplicacion </div>
+          <div className="AppMovilDescripcion">dandole en el boton</div>
+            <button className="AppMovilGesbutton">Descargar Gestick</button>
+          </div>
           <header className="HeaderPrincipal">
             <h2 className="logo">GESTICK</h2>
             <input type="checkbox" id="check" />

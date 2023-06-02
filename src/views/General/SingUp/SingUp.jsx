@@ -16,6 +16,7 @@ export default function SingUp() {
   const [id, setId] = useState(0);
 
   const modal = useRef();
+  const modalTerm = useRef();
 
   window.addEventListener("load", () => setLoading(false));
 
@@ -97,6 +98,33 @@ export default function SingUp() {
               window.location.href = "/Tablero";
             }}
           />
+          <div className="modal" ref={modalTerm}>
+            <div className="modal__container">
+              <div className="modal__header">
+                <h2 className="modal__title">Terminos y Condiciones</h2>
+              </div>
+              <hr />
+              <div className="modal__body">
+                <p className="modal__paragraph">
+                  GESTICK es una web para papelerías, creada por GESTICK Team,
+                  antes de acceder a ella debes saber que tendrás que llenar un
+                  formulario con datos básicos, además para usar la página DEBES
+                  PERMITIR el acceso automático a la cámara y la galería
+                  fotográfica de tu dispositivo. Todos los productos ofrecidos
+                  en la aplicación tienen un costo que deberá cancelar
+                  electrónicamente en el caso de desear adquirirlos.
+                </p>
+              </div>
+              <button
+                className="btn"
+                onClick={() => {
+                  modalTerm.current.style.display = "none";
+                }}
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
           <section className="contact-box">
             <div className="row no-gutters bg-dark">
               <div className="col-xl-5 col-lg-12 register-bg">
@@ -157,7 +185,14 @@ export default function SingUp() {
                       }
                     }}
                   >
-                    {({ handleChange, handleSubmit, handleBlur, touched, errors, isSubmitting }) => (
+                    {({
+                      handleChange,
+                      handleSubmit,
+                      handleBlur,
+                      touched,
+                      errors,
+                      isSubmitting,
+                    }) => (
                       <Form onSubmit={handleSubmit}>
                         <div className="form-row mb-2">
                           <div className="form-group col-md-6">
@@ -257,8 +292,8 @@ export default function SingUp() {
                             />
                             <label className="form-check-label text-muted">
                               Al seleccionar esta casilla aceptas nuestro{" "}
-                              <a href="#" className="terms__cta">
-                                aviso de privacidad y los términos y condiciones
+                              <a className="terms__cta" onClick={()=>{modalTerm.current.style.display = "flex";}}>
+                                aviso de Privacidad y los Términos y Condiciones
                               </a>
                             </label>
                           </div>
@@ -280,48 +315,6 @@ export default function SingUp() {
                   </small>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="modal ">
-            <div className="modal__container">
-              <div className="part_container">
-                <h2 className="modal__title">Terminos y Condiciones</h2>
-              </div>
-              <hr />
-              <div className="part_container">
-                <p className="modal__paragraph">
-                  GESTICK es una web para papelerías, creada por GESTICK Team,
-                  antes de acceder a ella debes saber que tendrás que llenar un
-                  formulario con datos básicos, además para usar la página DEBES
-                  PERMITIR el acceso automático a la cámara y la galería
-                  fotográfica de tu dispositivo. Todos los productos ofrecidos
-                  en la aplicación tienen un costo que deberá cancelar
-                  electrónicamente en el caso de desear adquirirlos.
-                </p>
-              </div>
-              <a href="#" className="modal__close">
-                Aceptar terminos y condiciones
-              </a>
-            </div>
-          </section>
-          <section className="modal">
-            <div className="modal__container">
-              <div className="part_container">
-                <h2 className="modal__title">Terminos y Condiciones</h2>
-              </div>
-              <hr />
-              <div className="part_container">
-                <p className="modal__paragraph">
-                  GESTICK es una web para papelerías, creada por GESTICK Team,
-                  antes de acceder a ella debes saber que tendrás que llenar un
-                  formulario con datos básicos, además para usar la página DEBES
-                  PERMITIR el acceso automático a la cámara y la galería
-                  fotográfica de tu dispositivo. Todos los productos ofrecidos
-                  en la aplicación tienen un costo que deberá cancelar
-                  electrónicamente en el caso de desear adquirirlos.
-                </p>
-              </div>
-              <a>Aceptar terminos y condiciones</a>
             </div>
           </section>
           <script src="JS/modal-term-cond.js" />

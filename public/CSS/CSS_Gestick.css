@@ -115,6 +115,73 @@ body {
 /*=========================================================================INDEX==================================================*/
 
 /*INPUT BUSCAR*/
+.AppMovil{
+  display: none;
+}
+.AppMovilDes{
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+.AppMovilTitulo{
+  
+  justify-content: flex-start;
+  margin: 5rem;
+  margin-bottom: 0.0005em;
+  margin-top: 0.5rem;
+  font-size: 4.5rem;
+}
+.AppMovilDescripcion{
+  
+  justify-content: flex-start;
+  margin: 0.5rem;
+  font-size: 2rem;
+  margin-left: 60px;
+}
+.AppMovilDescripcion1{
+  
+  justify-content: flex-start;
+  margin: 0.5rem;
+  font-size: 2rem;
+  margin-left: 40px;
+}
+.AppMovilGesbutton {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: var(--color-light);
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 20px;
+  width: 7.8rem;
+  height: 5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 60px;
+  margin: 20px;
+  margin-top: 5px;
+  margin-left: 8.5rem;
+}
+
+@media (max-width: 767px) {
+  .AppMovil {
+      position: absolute;
+      z-index: 1000;
+      display:block;
+      width: 450px;
+      height: 450px;
+      background-color: var(--color-grey);
+  }
+}
 
 .buscar {
   position: relative;
@@ -427,6 +494,7 @@ ul {
   align-items: center;
   margin-bottom: 60px;
 }
+
 
 .button2 span {
   cursor: pointer;
@@ -1957,6 +2025,14 @@ a.ssolink {
 }
 
 .terms__cta {
+  color: #1b1375;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.terms__cta:hover {
+  color: #011c3a;
   text-decoration: none;
   transition: background-color 0.3s;
 }
