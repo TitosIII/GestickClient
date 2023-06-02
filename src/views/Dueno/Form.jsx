@@ -10,11 +10,14 @@ import {
   uploadImage,
 } from "../../api/gestick.api";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Session from "react-session-api";
+import ConfirmModal from "../components/micro_components/ConfirmModal";
 
 const Form = () => {
   const { idEmpleado } = useParams();
+  const [id, setId] = useState(0);
+  const [password, setPassword] = useState("");
   const [initialValues, setInitialValues] = useState({
     firstName: "",
     lastNameP: "",
@@ -22,8 +25,10 @@ const Form = () => {
     address1: "",
     address2: "",
     img: undefined,
-    idAdmin:Session.get("id")
+    idAdmin: Session.get("id"),
   });
+
+  const modal = useRef();
 
   const checkoutSchema = yup.object().shape({
     firstName: yup.string().required("requerido"),
@@ -40,7 +45,7 @@ const Form = () => {
     try {
       if (idEmpleado) {
         values.id = parseInt(idEmpleado);
-        if(values.img != initialValues.img){
+        if (values.img != initialValues.img) {
           const data = new FormData();
           data.append("file", values.img);
           data.append("upload_preset", "gestick");
@@ -61,9 +66,12 @@ const Form = () => {
 
       if (response.data.error) {
         console.log(response.data.error);
-      } else {
+      } else if (response.data.id) {
         console.log(response.data);
-
+        setId(response.data.id);
+        setPassword(response.data.aleatoria);
+        modal.current.style.display = "flex";
+      } else {
         window.location.href = "/Empleados";
       }
     } catch (e) {
@@ -81,7 +89,7 @@ const Form = () => {
           address1: data.EmDireccion1,
           address2: data.EmDireccion2,
           img: data.EmURLimg,
-          idAdmin: Session.get("idAdmin")
+          idAdmin: Session.get("idAdmin"),
         });
       });
     }
@@ -89,6 +97,14 @@ const Form = () => {
 
   return (
     <>
+      <ConfirmModal
+        title={"Asignación de ID y contraseña del empleado."}
+        message={`Id: ${id} \n Contraseña: ${password}`}
+        action={() => {
+          window.location.href = "/Empleados";
+        }}
+        modal={modal}
+      />
       <Formik
         enableReinitialize
         onSubmit={handleFormSubmit}
@@ -195,7 +211,9 @@ const Form = () => {
                     </Box>
                     <Box display="flex" justifyContent="end" mt="20px">
                       <Button type="submit" color="primary" variant="contained">
-                      {idEmpleado ? "Editar Empleado.":"Crear Nuevo Empleado"}
+                        {idEmpleado
+                          ? "Editar Empleado."
+                          : "Crear Nuevo Empleado"}
                       </Button>
                     </Box>
                   </Box>

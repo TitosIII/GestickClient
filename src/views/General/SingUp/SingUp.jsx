@@ -1,5 +1,6 @@
 import "../../../../public/CSS/CSS_Gestick.css";
 import { Form, Formik } from "formik";
+import { TextField } from "@mui/material";
 import { createAdminRequest } from "../../../api/gestick.api";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -8,6 +9,7 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Footer from "../../components/micro_components/Footer";
 import Session from "react-session-api";
 import ConfirmModal from "../../components/micro_components/ConfirmModal";
+import * as yup from "yup";
 
 export default function SingUp() {
   const [loading, setLoading] = useState(true);
@@ -155,7 +157,7 @@ export default function SingUp() {
                       }
                     }}
                   >
-                    {({ handleChange, handleSubmit, isSubmitting }) => (
+                    {({ handleChange, handleSubmit, handleBlur, touched, errors, isSubmitting }) => (
                       <Form onSubmit={handleSubmit}>
                         <div className="form-row mb-2">
                           <div className="form-group col-md-6">

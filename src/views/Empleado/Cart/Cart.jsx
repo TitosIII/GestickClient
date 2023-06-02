@@ -18,6 +18,7 @@ function Cart() {
 
   const [carrito, setCarrito] = useState([]); ///Los productos seleccionados para vender.
   const [table, setTable] = useState([]); ///Los productos de la base de datos///
+  const [warningMessage, setWarningMessage] = useState([]);
 
   const modal = useRef();
   const warningModal = useRef();
@@ -93,6 +94,9 @@ function Cart() {
     });
     if (data.error) {
       console.log(data.error);
+      setWarningMessage(
+        "Hubo un error en el servidor, vuelva a intentarlo más tarde."
+      );
       warningModal.current.style.display = "flex";
     } else {
       console.log(data);
@@ -118,7 +122,7 @@ function Cart() {
       />
       <ConfirmModal
         title={"Error"}
-        message={"Hubo un error en el servidor, vuelva a intentarlo más tarde."}
+        message={warningMessage}
         modal={warningModal}
       />
       <div className="containerCarrito">
@@ -158,8 +162,15 @@ function Cart() {
               id="btnCarrito"
               className="btn-sell"
               onClick={() => {
-                modal.current.style.display = "flex";
+                if (carrito.length == 0) {
+                  console.log(carrito.length);
+                  setWarningMessage("No hay ningún producto en el carrito.");
+                  warningModal.current.style.display = "flex";
+                } else {
+                  modal.current.style.display = "flex";
+                }
               }}
+              disabled={carrito.length <= 0}
             >
               Vender
             </button>
