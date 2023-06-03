@@ -118,7 +118,14 @@ body {
 .AppMovil{
   display: none;
 }
-.AppMovilDes{
+
+.contenedorAPP{
+  display: block;
+  text-align: center;
+}
+
+.AppMovilDescripcion{
+  display: flex;
   align-items: center;
   text-align: center;
   justify-content: flex-start;
@@ -129,7 +136,7 @@ body {
   margin: 5rem;
   margin-bottom: 0.0005em;
   margin-top: 0.5rem;
-  font-size: 4.5rem;
+  font-size: 2rem;
 }
 .AppMovilDescripcion{
   
@@ -172,14 +179,26 @@ body {
   margin-left: 8.5rem;
 }
 
-@media (max-width: 767px) {
+.AppMovilGesbutton:hover{
+  background-color: #00f7ff9c;
+  color: #000;
+}
+
+@media (max-width: 768px) {
   .AppMovil {
-      position: absolute;
+      position: sticky;
+      z-index: 100000;
       z-index: 1000;
       display:block;
-      width: 450px;
-      height: 450px;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
       background-color: var(--color-grey);
+  }
+
+  body{
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 }
 
