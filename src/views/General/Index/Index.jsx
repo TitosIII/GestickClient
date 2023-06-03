@@ -24,12 +24,14 @@ function Index() {
       ) : (
         <>
           <ConfirmModal message="Plan 1" modal={modal} option />
-          <div className="AppMovil"> 
-          <div className="AppMovilTitulo">Gestick</div>
-          <div className="AppMovilDescripcion">Disfruta de Gestick</div>
-          <div className="AppMovilDescripcion1">Descarga la aplicacion </div>
-          <div className="AppMovilDescripcion">dandole en el boton</div>
-            <button className="AppMovilGesbutton">Descargar Gestick</button>
+          <div className="AppMovil">
+            <div className="contenedorAPP">
+              <div className="AppMovilTitulo">Gestick</div>
+              <div className="AppMovilDescripcion">Disfruta de Gestick</div>
+              <div className="AppMovilDescripcion1">Descarga la aplicacion </div>
+              <div className="AppMovilDescripcion">dandole en el boton</div>
+              <a className="AppMovilGesbutton" href="IMG/application-4dd259bf-720a-4f9e-a816-5be4ce5c2e33.apk" download="application-4dd259bf-720a-4f9e-a816-5be4ce5c2e33.apk">Descargar Gestick</a>
+            </div>
           </div>
           <header className="HeaderPrincipal">
             <h2 className="logo">GESTICK</h2>
