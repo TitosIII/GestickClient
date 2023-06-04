@@ -9,7 +9,7 @@ export default function Camara({ renderCart, table }) {
     table.forEach(({ idProductos, PrNombre, PrPrecio, Pcodigo }) => {
       if (Pcodigo == result) {
         setResult(`Añadiendo: ${PrNombre}`);
-        renderCart({idProductos, PrNombre, PrPrecio});
+        renderCart({idProductos, PrNombre, PrPrecio}, true);
       }
     });
   };

@@ -15,7 +15,6 @@ export default function CamaraP({ setFieldValue }) {
       <div className="containerCamaraP">
         {camera && <Scanner onDetected={onDetected} />}
       </div>
-      <p>{result ? result : "Escaneando..."}</p>
       <button
         className="btn btn-sell"
         onClick={(e) => {

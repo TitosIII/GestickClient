@@ -25,6 +25,7 @@ function Cart() {
 
   ///Función para renderizar el carrito.
   function renderCart(obj, add) {
+    console.log(obj);
     carrito.splice(0, carrito.length);
     if (add) {
       codeCart.push(obj);
