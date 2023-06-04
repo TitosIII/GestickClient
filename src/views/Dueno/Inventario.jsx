@@ -3,13 +3,17 @@ import "../../../public/CSS/CSS_Gestick.css";
 import CardsProducto from "../components/micro_components/CardsProducto";
 import HeaderOpcionesAdmin from "../components/micro_components/HeaderOpcionesAdmin";
 import ClockLoader from "react-spinners/ClockLoader";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Session from "react-session-api";
 import { deleteProduct, getProducts } from "../../api/gestick.api";
+import ConfirmModal from "../components/micro_components/ConfirmModal";
 
 export default function Inventario() {
   const [loading, setLoading] = useState(true);
   const [table, setTable] = useState([]);
+
+  const deleteModal = useRef();
+  let idProductToDel;
 
   const updateData = () => {
     getProducts({ idAdmin: Session.get("id") }).then((results) => {
@@ -30,13 +34,25 @@ export default function Inventario() {
 
   if (Session.get("type") == 1) {
     return (
-      <section>
+      <>
         {loading ? (
           <div className="contenedorCarga">
             <ClockLoader color="#01a7c2" size={100} loading={loading} />
           </div>
         ) : (
-          <section>
+          <>
+            <ConfirmModal
+              title={"Confirmación."}
+              message={
+                "¿Está seguro de borrar el Producto?. Está acción no se puede deshacer."
+              }
+              option
+              modal={deleteModal}
+              action={() => {
+                deleteProduct({ idProductos: idProductToDel });
+                setTimeout(updateData, 150);
+              }}
+            />
             <Header />
             <HeaderOpcionesAdmin />
             <section className="cardscontainer">
@@ -59,26 +75,29 @@ export default function Inventario() {
                       </p>
                     </div>
                     <div className="stars">
-                      <a className="saber-mas-P" href={`/EditarProducto/${row.idProductos}`}>
-                        Editar
-                      </a>
                       <a
                         className="saber-mas-P"
+                        href={`/EditarProducto/${row.idProductos}`}
+                      >
+                        Editar
+                      </a>
+                      <button
+                        className="saber-mas-P"
                         onClick={() => {
-                          deleteProduct({idProductos: row.idProductos});
-                          setTimeout(updateData, 150);
+                          idProductToDel = row.idProductos;
+                          deleteModal.current.style.display = "flex";
                         }}
                       >
                         Borrar
-                      </a>
+                      </button>
                     </div>
                   </div>
                 ))
               )}
             </section>
-          </section>
+          </>
         )}
-      </section>
+      </>
     );
   } else {
     window.location.href = "/loginAdministrador";

@@ -112,7 +112,7 @@ function Cart() {
 
   return (
     <>
-      <Header />
+      {Session.get("type") == 1 ? <Header /> : <></>}
       <ConfirmModal
         title={"Confirmación de Compra"}
         message={"Dé click en 'Aceptar' para continuar."}
@@ -199,7 +199,7 @@ function Cart() {
           </main>
           <aside>
             <div className="camara">
-              <Camara />
+              <Camara renderCart={renderCart} table={table} />
             </div>
           </aside>
         </div>

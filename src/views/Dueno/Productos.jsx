@@ -4,11 +4,7 @@ import { useEffect, useState } from "react";
 import Session from "react-session-api";
 import CamaraP from "../components/micro_components/Scanner/CamaraP.jsx";
 import { Formik } from "formik";
-import {
-  addProduct,
-  getAProduct,
-  uploadImage,
-} from "../../api/gestick.api.js";
+import { addProduct, getAProduct, uploadImage } from "../../api/gestick.api.js";
 import Uploader from "../components/micro_components/Uploader.jsx";
 import { useParams } from "react-router-dom";
 import { getTradeMark } from "../../api/gestick.api.js";
@@ -29,6 +25,7 @@ export default function Productos() {
     tradeMark: 1,
     exis: 0,
     img: undefined,
+    code: "",
     idAdmin: Session.get("id"),
   });
 
@@ -72,7 +69,6 @@ export default function Productos() {
 
     getTradeMark().then((results) => {
       setTradeMarkList(results.data);
-      console.log(results.data);
     });
 
     getAProduct({ idProduct }).then(({ data }) =>
@@ -91,8 +87,16 @@ export default function Productos() {
   }, []);
 
   const checkoutSchema = yup.object().shape({
-    idAdmin: yup.string().required("Campo Obligatorio").min(6, `Ingresa Un ID Completo`).max(6, `Ingresa Un ID De 6 Digitos`),
-    password: yup.string().required("Campo Obligatorio").min(8, `Ingresa Más De 7 Digitos`).max(150, `Ingresa Una Contraseña Valida`),
+    idAdmin: yup
+      .string()
+      .required("Campo Obligatorio")
+      .min(6, `Ingresa Un ID Completo`)
+      .max(6, `Ingresa Un ID De 6 Digitos`),
+    password: yup
+      .string()
+      .required("Campo Obligatorio")
+      .min(8, `Ingresa Más De 7 Digitos`)
+      .max(150, `Ingresa Una Contraseña Valida`),
   });
 
   if (Session.get("type") == 1) {
@@ -103,7 +107,7 @@ export default function Productos() {
             <ClockLoader color="#01a7c2" size={100} loading={loading} />
           </div>
         ) : (
-          <section>
+          <div>
             <HeaderPro />
 
             <Formik
@@ -111,15 +115,21 @@ export default function Productos() {
               initialValues={initialValues}
               onSubmit={handleFormSubmit}
             >
-              {({ values, setFieldValue, handleSubmit, handleChange }) => (
+              {({
+                values,
+                setFieldValue,
+                handleSubmit,
+                handleChange,
+                isSubmitting,
+              }) => (
                 <form onSubmit={handleSubmit}>
                   <input
                     type="hidden"
                     name="idAdmin"
                     value={Session.get("id")}
                   />
-                  <section className="InformacionPro">
-                    <section className="NavProductoInfo">
+                  <div className="InformacionPro">
+                    <div className="NavProductoInfo">
                       <label
                         htmlFor="TituloEstadoDelProducto"
                         className="TituloContenedorPropiedadesDelProducto"
@@ -145,7 +155,7 @@ export default function Productos() {
                       </div>
 
                       <div className="DescripcionProContenedor">
-                        <div class="form-group">
+                        <div className="form-group">
                           <label
                             htmlFor="DescripcionPro"
                             className="TITULONOMBRE"
@@ -154,7 +164,7 @@ export default function Productos() {
                           </label>
                           <textarea
                             style={{ resize: "none" }}
-                            class="form-control-P"
+                            className="form-control-P"
                             name="desc"
                             id="DescripcionPro"
                             rows="3"
@@ -164,8 +174,8 @@ export default function Productos() {
                           />
                         </div>
                       </div>
-                    </section>
-                    <section className="EstadoDelProducto">
+                    </div>
+                    <div className="EstadoDelProducto">
                       <label
                         htmlFor="TituloEstadoDelProducto"
                         className="TituloContenedorPropiedadesDelProducto"
@@ -200,7 +210,7 @@ export default function Productos() {
                         </label>
                         <input
                           type="number"
-                          class="form-control-P"
+                          className="form-control-P"
                           name="price"
                           id="ExistenciasPro"
                           aria-describedby="PrecioVentaHelp"
@@ -210,8 +220,8 @@ export default function Productos() {
                           onChange={handleChange}
                         />
                       </div>
-                    </section>
-                    <section className="ElementosMultimedia">
+                    </div>
+                    <div className="ElementosMultimedia">
                       <div className="nombreProductoContent">
                         <label
                           htmlFor="TituloEstadoDelProducto"
@@ -225,8 +235,8 @@ export default function Productos() {
                           />
                         </div>
                       </div>
-                    </section>
-                    <section className="OrganizacionDelProducto">
+                    </div>
+                    <div className="OrganizacionDelProducto">
                       <div className="ContenedorOrganizacionDelProducto">
                         <label
                           htmlFor="TituloEstadoDelProducto"
@@ -244,7 +254,7 @@ export default function Productos() {
                         </label>
                         <input
                           type="text"
-                          class="form-control-P"
+                          className="form-control-P"
                           name="type"
                           id="ExistenciasPro"
                           aria-describedby="PrecioVentaHelp"
@@ -261,10 +271,10 @@ export default function Productos() {
                         >
                           Marca:{" "}
                         </label>
-                        
+
                         <select
                           type="text"
-                          class="form-control-P"
+                          className="form-control-P"
                           name="tradeMark"
                           id="ExistenciasPro"
                           aria-describedby="PrecioVentaHelp"
@@ -280,8 +290,6 @@ export default function Productos() {
                             <option value={row.idMarca}>{row.MarNombre}</option>
                           ))}
                         </select>
-                        
-
                       </div>
                       <div className="PrecioVentaContenedor">
                         <label
@@ -292,7 +300,7 @@ export default function Productos() {
                         </label>
                         <input
                           type="number"
-                          class="form-control-P"
+                          className="form-control-P"
                           name="exis"
                           id="ExistenciasPro"
                           aria-describedby="PrecioVentaHelp"
@@ -302,8 +310,8 @@ export default function Productos() {
                           onChange={handleChange}
                         />
                       </div>
-                    </section>
-                    <section className="CamaraPaginaProducto">
+                    </div>
+                    <div className="CamaraPaginaProducto">
                       <div className="ProductCamara">
                         <label
                           htmlFor="TituloEstadoDelProducto"
@@ -311,23 +319,47 @@ export default function Productos() {
                         >
                           Codigo de Barras
                         </label>
-                        <CamaraP />
+                        <input
+                          type="text"
+                          className="form-control-P"
+                          name="code"
+                          id="code"
+                          aria-describedby="PrecioVentaHelp"
+                          min="0"
+                          placeholder="00000000"
+                          value={values.code}
+                          onChange={handleChange}
+                          disabled
+                        />
+                        <CamaraP {...{ setFieldValue }} />
                       </div>
-                    </section>
-                    <section className="BotonesProducto">
-                      <button className="BotonCrearProducto" type="submit">
-                        <span>{idProduct ? "Editar" : "Crear"}</span>
+                    </div>
+                    <div className="BotonesProducto">
+                      <button
+                        className="BotonCrearProducto"
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        <span>
+                          {idProduct
+                            ? isSubmitting
+                              ? "Cargando..."
+                              : "Editar"
+                            : idProduct
+                            ? "Cargando..."
+                            : "Registrar"}
+                        </span>
                       </button>
                       <button className="BotonCancelarProducto">
                         {" "}
                         <span>Cancelar</span>{" "}
                       </button>
-                    </section>
-                  </section>
+                    </div>
+                  </div>
                 </form>
               )}
             </Formik>
-          </section>
+          </div>
         )}
       </>
     );
