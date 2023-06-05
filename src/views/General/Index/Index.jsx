@@ -24,15 +24,6 @@ function Index() {
       ) : (
         <>
           <ConfirmModal message="Plan 1" modal={modal} option />
-          <div className="AppMovil">
-            <div className="contenedorAPP">
-              <div className="AppMovilTitulo">Gestick</div>
-              <div className="AppMovilDescripcion">Disfruta de Gestick</div>
-              <div className="AppMovilDescripcion1">Descarga la aplicacion </div>
-              <div className="AppMovilDescripcion">dandole en el boton</div>
-              <a className="AppMovilGesbutton" href="IMG/application-4dd259bf-720a-4f9e-a816-5be4ce5c2e33.apk" download="application-4dd259bf-720a-4f9e-a816-5be4ce5c2e33.apk">Descargar Gestick</a>
-            </div>
-          </div>
           <header className="HeaderPrincipal">
             <h2 className="logo">GESTICK</h2>
             <input type="checkbox" id="check" />
@@ -48,7 +39,13 @@ function Index() {
               </label>
             </nav>
           </header>
-
+          <header className="AppMovil">
+            <div className="contenedorAPP">
+              <h2>App Movíl</h2>
+              <p>Gestiona tus Empleados En Cualquier lugar, Descarga Ahora</p>
+              <a className="btn" href="https://drive.google.com/uc?id=1K49x8xYXBeM599sz4YFZmSQ0fyWRTg4Y&export=download" download="application-4dd259bf-720a-4f9e-a816-5be4ce5c2e33.apk">Descargar Gestick</a>
+            </div>
+          </header>
           <div className="container">
             <div className="showcase">
               <h1>Gestick</h1>
@@ -67,36 +64,36 @@ function Index() {
               </a>
             </div>
 
-            <section class="knowledge">
-              <div class="knowledge__container container">
-                <div class="knowledege__texts">
-                  <h2 class="subtitle">¿Qué es Gestick?</h2>
-                  <p class="knowledge__paragraph">
+            <section className="knowledge">
+              <div className="knowledge__container container">
+                <div className="knowledege__texts">
+                  <h2 className="subtitle">¿Qué es Gestick?</h2>
+                  <p className="knowledge__paragraph">
                     Gestick es un programa enfocado en la gestion de inventarios
                     y puntos de venta, esto con el objetivo de tener una mejor
                     administración de los productos que se llevan en cualquier
                     negocio, ahora enfocado en papelerias aparte de brindar un
                     punto de venta rapido y eficaz
                   </p>
-                  <button href="#" class="button2">
+                  <button href="#" className="button2">
                     <span>Entra</span>
                   </button>
                 </div>
 
-                <figure class="knowledge__picture">
+                <figure className="knowledge__picture">
                   <img
                     src="../IMG/Decoration/negocio.webp"
-                    class="knowledge__img"
+                    className="knowledge__img"
                   ></img>
                 </figure>
               </div>
             </section>
 
             <section id="nuestros-programas">
-              <div class="container">
+              <div className="container">
                 <h2>¿Que es lo que puedes hacer con Gestick?</h2>
-                <div class="programas">
-                  <div class="carta">
+                <div className="programas">
+                  <div className="carta">
                     <div className="tittle">
                       <h3>Crea Tu Propio Inventario Para Tu Negocio</h3>
                     </div>
@@ -114,7 +111,7 @@ function Index() {
                       </button>
                     </div>
                   </div>
-                  <div class="carta">
+                  <div className="carta">
                     <h3>Gestiona Tus Empleados</h3>
                     <p>
                       Con Gestick puedes Gestionar a todos tus empleados y así
@@ -127,7 +124,7 @@ function Index() {
                       </button>
                     </div>
                   </div>
-                  <div class="carta">
+                  <div className="carta">
                     <h3>Personaliza Tu Espacio.</h3>
                     <p>
                       Tienes la libertad de personalizar tu espacio de trabajo y
@@ -140,7 +137,7 @@ function Index() {
                       </button>
                     </div>
                   </div>
-                  <div class="carta">
+                  <div className="carta">
                     <h3>Crea Tu E-Commerce</h3>
                     <p>
                       Con Gestick puedes crear tu propia E-Commerce facíl y
@@ -158,7 +155,7 @@ function Index() {
               </div>
             </section>
 
-            <section class="banner-2">
+            <section className="banner-2">
               <h3>
                 Prueba Tu Mes Gratis
                 <p>
@@ -175,32 +172,32 @@ function Index() {
               </h3>
             </section>
 
-            <section class="galeria">
-              <div class="sesgoarriba"></div>
-              <div class="imagenes none">
+            <section className="galeria">
+              <div className="sesgoarriba"></div>
+              <div className="imagenes none">
                 <img src="../IMG/Decoration/Cliente_1.webp" alt="#"></img>
               </div>
-              <div class="imagenes">
+              <div className="imagenes">
                 <img src="../IMG/Decoration/Cliente_2.webp" alt=""></img>
-                <div class="encima">
+                <div className="encima">
                   <h2>AlexCG Design</h2>
                 </div>
               </div>
-              <div class="imagenes">
+              <div className="imagenes">
                 <img src="../IMG/Decoration/Cliente_3.webp" alt=""></img>
               </div>
-              <div class="imagenes">
+              <div className="imagenes">
                 <img src="../IMG/Decoration/Cliente_4.webp" alt=""></img>
               </div>
-              <div class="imagenes none">
+              <div className="imagenes none">
                 <img src="../IMG/Decoration/Cliente_1.webp" alt=""></img>
               </div>
-              <div class="sesgoabajo"></div>
+              <div className="sesgoabajo"></div>
             </section>
 
-            <section class="course" id="course">
-              <div class="box-container">
-                <div class="box">
+            <section className="course" id="course">
+              <div className="box-container">
+                <div className="box">
                   <img src="../IMG/Decoration/Cliente_1.webp" alt="" />
                   <h3>RC DUDE MX</h3>
                   <p>
@@ -210,7 +207,7 @@ function Index() {
                   </p>
                 </div>
 
-                <div class="box">
+                <div className="box">
                   <img src="../IMG/Decoration/Cliente_2.webp" alt="" />
                   <h3>Baratus</h3>
                   <p>
@@ -221,7 +218,7 @@ function Index() {
                   </p>
                 </div>
 
-                <div class="box">
+                <div className="box">
                   <img src="../IMG/Decoration/Cliente_3.webp" alt="" />
                   <h3>El Cuartel Secreto</h3>
                   <p>
@@ -231,7 +228,7 @@ function Index() {
                   </p>
                 </div>
 
-                <div class="box">
+                <div className="box">
                   <img src="../IMG/Decoration/Cliente_4.webp" alt="" />
                   <h3>Guitar Store</h3>
                   <p>
