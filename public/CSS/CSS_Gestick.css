@@ -74,6 +74,79 @@ body {
   color: var(--color-grey);
 }
 
+/*Menu*/
+
+.activeBar {
+  color: #01a7c2;
+}
+
+
+.mostrar-menu{
+  order: 1;
+}
+
+
+#black {
+  height: 100px;
+  background: #283845;
+  padding: 0 50px;
+  color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 200;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo2 {
+  margin-left: 2%;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 200;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1%;
+}
+
+.menu a {
+  color: var(--color-white);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 10px;
+  transition: 0.4s;
+}
+
+.mostrar-menu,
+.esconder-menu {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  transition: 0, 4s;
+}
+
+.mostrar-menu {
+  order: 1;
+}
+
+.menu a:hover,
+.mostrar-menu:hover,
+.esconder-menu:hover {
+  color: var(--color-light);
+}
+
+#check {
+  display: none;
+}
+
 .HeaderPrincipal {
   background: #2c2b2b;
   padding: 0 50px;
@@ -97,6 +170,7 @@ body {
   position: absolute;
   top: 80px;
 }
+
 .HeaderAdmin {
   background: #2c2b2b;
   padding: 0 50px;
@@ -110,94 +184,72 @@ body {
   position: fixed;
 }
 
+@media(max-width: 768px){
+  /*Menu*/
+  .mostrar-menu, .esconder-menu{
+      display: block;
+  }
+
+  .menu{
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: var(--color-dark);
+      right: -100%;
+      top:0;
+      text-align: center;
+      padding: 100px 0px;
+      z-index: 100;
+      transition: 0.8s;
+  }
+  .menu a{
+      display:block;
+      padding: 20px;
+  }
+  .esconder-menu{
+      position:absolute;
+      top:40px;
+      right: 40px;
+  }
+  #check:checked ~ .menu{
+      right: 0;
+  }
+}
+
 /*========================================================================NotFound================================================*/
 
 /*=========================================================================INDEX==================================================*/
 
 /*INPUT BUSCAR*/
-.AppMovil{
+.AppMovil {
   display: none;
-}
-
-.contenedorAPP{
-  display: block;
-  text-align: center;
-}
-
-.AppMovilDescripcion{
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: flex-start;
-}
-.AppMovilTitulo{
-  
-  justify-content: flex-start;
-  margin: 5rem;
-  margin-bottom: 0.0005em;
-  margin-top: 0.5rem;
-  font-size: 2rem;
-}
-.AppMovilDescripcion{
-  
-  justify-content: flex-start;
-  margin: 0.5rem;
-  font-size: 2rem;
-  margin-left: 60px;
-}
-.AppMovilDescripcion1{
-  
-  justify-content: flex-start;
-  margin: 0.5rem;
-  font-size: 2rem;
-  margin-left: 40px;
-}
-.AppMovilGesbutton {
-  cursor: pointer;
-  display: inline-block;
-  border: 0;
-  font-weight: bold;
-  padding: 10px 20px;
-  background: var(--color-light);
-  color: #fff;
-  font-size: 15px;
-  border: 1px solid #fff;
-  border-radius: 0.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 20px;
-  width: 7.8rem;
-  height: 5rem;
-  transition: all 0.3s;
-  cursor: pointer;
-  margin: 5px;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 60px;
-  margin: 20px;
-  margin-top: 5px;
-  margin-left: 8.5rem;
-}
-
-.AppMovilGesbutton:hover{
-  background-color: #00f7ff9c;
-  color: #000;
 }
 
 @media (max-width: 768px) {
   .AppMovil {
-      position: sticky;
-      z-index: 100000;
-      z-index: 1000;
-      display:block;
-      text-align: center;
-      width: 100vw;
-      height: 100vh;
-      background-color: var(--color-grey);
+    margin-top: 70px;
+    color: #fff;
+    background: var(--color-grey);
+    padding: 0 50px;
+    color: var(--color-black);
+    display: block;
+    text-align: center;
+    z-index: 1000;
+    height: 200px;
+    width: 100vw;
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
   }
 
-  body{
-    overflow-y: hidden;
+  .contenedorAPP{
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  body {
     overflow-x: hidden;
   }
 }
@@ -215,6 +267,7 @@ body {
   align-items: center;
   align-content: center;
 }
+
 .buscar input {
   position: relative;
   left: -20px;
@@ -355,73 +408,6 @@ ul {
   .footer-col {
     width: 100%;
   }
-}
-
-/*Menu*/
-
-.activeBar {
-  color: #01a7c2;
-}
-
-#black {
-  height: 100px;
-  background: #283845;
-  padding: 0 50px;
-  color: aliceblue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  text-transform: uppercase;
-  color: var(--color-white);
-  font-weight: 200;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.logo2 {
-  margin-left: 2%;
-  text-transform: uppercase;
-  color: var(--color-white);
-  font-weight: 200;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 1%;
-}
-
-.menu a {
-  color: var(--color-white);
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0 10px;
-  transition: 0.4s;
-}
-
-.mostrar-menu,
-.esconder-menu {
-  font-size: 30px;
-  cursor: pointer;
-  display: none;
-  transition: 0, 4s;
-}
-
-.mostrar-menu {
-  order: 1;
-}
-
-.menu a:hover,
-.mostrar-menu:hover,
-.esconder-menu:hover {
-  color: var(--color-light);
-}
-
-#check {
-  display: none;
 }
 
 a {
@@ -721,8 +707,7 @@ ul {
 .cards-banner-one {
   width: 100%;
   height: 350px;
-  background: url("../IMG/Decoration/E-Commerce.webp") no-repeat center
-    center/cover;
+  background: url("../IMG/Decoration/E-Commerce.webp") no-repeat center center/cover;
   margin-bottom: 40px;
   border-radius: 1rem;
 }
@@ -1064,6 +1049,7 @@ ul {
     width: 100%;
   }
 }
+
 /*-----------------------------imagen principal de fondo----------------------------*/
 
 .showcase h1 {
@@ -1075,6 +1061,7 @@ ul {
   text-transform: uppercase;
   margin: 0;
 }
+
 .showcase .slogan {
   margin: 0;
   font-size: 3rem;
@@ -1097,10 +1084,12 @@ ul {
   width: 100%;
   border-radius: 2rem;
 }
+
 .knowledge__img {
   width: 300px;
   height: 450px;
 }
+
 .knowledge__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1118,12 +1107,14 @@ ul {
   padding: 13px 30px;
   border-radius: 32px;
 }
+
 .cta span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
+
 .cta span:after {
   content: "\00bb";
   position: absolute;
@@ -1162,37 +1153,30 @@ ul {
 }
 
 .carta:first-child {
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
+      rgba(0, 0, 0, 0.5)),
     url("../IMG/Decoration/negocio.webp");
 }
 
 .carta:nth-child(2) {
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
+      rgba(0, 0, 0, 0.5)),
     url("../IMG/Decoration/Empleados.jpg");
 }
 
 .carta:nth-child(3) {
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
+      rgba(0, 0, 0, 0.5)),
     url("../IMG/Decoration/Personalizacion.webp");
 }
+
 .carta:nth-child(4) {
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
+      rgba(0, 0, 0, 0.5)),
     url("../IMG/Decoration/E-Commerce.webp");
 }
 
@@ -1242,11 +1226,15 @@ ul {
   border-radius: 1rem;
   width: 100%;
   height: 500px;
-  background-repeat: no-repeat; /* No se repetira */
-  background-size: cover; /* Imagen al 100% del ancho */
-  background-attachment: fixed; /* Posicion fija para la imagen */
+  background-repeat: no-repeat;
+  /* No se repetira */
+  background-size: cover;
+  /* Imagen al 100% del ancho */
+  background-attachment: fixed;
+  /* Posicion fija para la imagen */
   text-align: center;
 }
+
 .banner-2 h3 {
   background: rgba(0, 0, 0, 0);
   color: #fff;
@@ -1256,6 +1244,7 @@ ul {
   padding: 2%;
   padding-top: 5%;
 }
+
 .banner-2 p {
   color: #fff;
   font-size: 32px;
@@ -1305,6 +1294,7 @@ ul {
   height: 100%;
   object-fit: cover;
 }
+
 .imagenes img:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -1317,10 +1307,12 @@ section#course.course {
   margin-bottom: 5%;
   margin-top: 5%;
 }
+
 section#course.course div.box-container div.box img {
   width: 50%;
   margin-top: 5%;
 }
+
 .course .box-container {
   width: 85%;
   display: flex;
@@ -1347,6 +1339,7 @@ section#course.course div.box-container div.box img {
   min-width: 5rem;
   min-height: 5rem;
 }
+
 .course .box-container .box h3 {
   font-size: 2rem;
   color: #01a7c2;
@@ -1368,6 +1361,7 @@ section#course.course div.box-container div.box img {
   height: 100%;
   background: rgba(52, 73, 94, 0.85);
 }
+
 /*========================================================================SobreNosotros================================================*/
 /*Equipo*/
 
@@ -1433,6 +1427,7 @@ section#course.course div.box-container div.box img {
   background: rgba(100, 191, 191, 0.4);
   color: #01a7c2;
 }
+
 .saber-mas-P {
   text-align: center;
   font-size: 10px;
@@ -1445,6 +1440,7 @@ section#course.course div.box-container div.box img {
   transition: all 0.4s;
   margin: -5px;
 }
+
 .saber-mas-P:hover {
   background: rgba(1, 167, 194, 0.4);
   color: #01a7c2;
@@ -1480,6 +1476,7 @@ section#course.course div.box-container div.box img {
   text-align: center;
   color: #000000;
 }
+
 /*====================================================================TitosChampionssSonicAdrianJoshuaGael(GestickAdmin,, GestickAdminTable styletable)================================================*/
 /*=========================================================================INVENTARIO==================================================================*/
 .TablerosG {
@@ -1591,6 +1588,7 @@ section#course.course div.box-container div.box img {
   margin-bottom: 100px;
   padding: 120px;
 }
+
 .TablerosD {
   margin-bottom: 100px;
   padding: 60px;
@@ -1607,10 +1605,12 @@ section#course.course div.box-container div.box img {
   max-width: 100%;
   min-width: 60%;
 }
+
 .TablerosA {
   margin-bottom: 100px;
   padding-top: 200px;
 }
+
 /*=====================================================================SupportAdmin================================================*/
 
 /*====================================================================SignUp(registro)==================================================*/
@@ -1846,8 +1846,7 @@ section#course.course div.box-container div.box img {
 .loginbackground-gridContainer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: [start] 1fr [left-gutter] (86.6px) [] [left-gutter] 1fr
-    [end];
+  -ms-grid-columns: [start] 1fr [left-gutter] (86.6px) [] [left-gutter] 1fr [end];
   grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
   -ms-grid-rows: [top] 1fr [top-gutter] (64px) [] [bottom-gutter] 1fr [bottom];
   grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
@@ -1925,6 +1924,7 @@ section#course.course div.box-container div.box img {
   line-height: 28px;
   color: #000000;
 }
+
 #spanLoginE {
   display: block;
   font-size: 20px;
@@ -2069,6 +2069,7 @@ a.ssolink {
   align-content: stretch;
   padding-top: 130px;
 }
+
 .TablerosT {
   margin-top: 10px;
   margin-bottom: 0;
@@ -2123,6 +2124,7 @@ a.ssolink {
   color: #fff;
   border-radius: 5px;
 }
+
 /*========================================================================EmpleadosTablero (AgregarEmpleado y EditarEmpleado)================================================*/
 .Servicio {
   width: 200px;
@@ -2216,6 +2218,7 @@ a.ssolink {
   border-radius: 30px;
   transition: all 0.4s;
 }
+
 .saber-mas-E:hover {
   background: rgba(1, 116, 142, 0.6);
   color: #202c39;
@@ -2226,6 +2229,7 @@ a.ssolink {
   padding: 60px;
   padding-left: 0;
 }
+
 .TablerosE {
   display: flex;
   justify-content: space-evenly;
@@ -2233,9 +2237,11 @@ a.ssolink {
   align-content: stretch;
   padding-top: 130px;
 }
+
 .contenedorImg {
   width: 50%;
 }
+
 .formulario-Producto {
   width: 50%;
   color: var(--color-white);
@@ -2267,6 +2273,7 @@ a.ssolink {
   border-radius: 5px;
   background-color: #01a7c2;
 }
+
 .pruebas {
   display: flex;
   justify-content: center;
@@ -2283,9 +2290,11 @@ h3 {
   text-align: center;
   margin-top: 0;
 }
+
 .formulario-Producto div {
   color: var(--color-white);
 }
+
 /*========================================================================Inventario(CardsProducto, productoCard)================================================*/
 .cardscontainer {
   margin-top: 200px;
@@ -2471,16 +2480,19 @@ h3 {
   transition: all 0.4s;
   margin: -5px;
 }
+
 .product p {
   font-size: 11px;
   line-height: 24px;
   margin: 5px;
 }
+
 .namePrice span {
   margin: 5px;
   font-size: 15px;
   color: var(--starColor);
 }
+
 /*========================================================================Productos(HeaderPro perfil,scanner)================================================*/
 .NavProductoInfo {
   display: grid;
@@ -2496,6 +2508,7 @@ h3 {
   justify-items: center;
   align-content: space-between;
 }
+
 .EstadoDelProducto {
   display: grid;
   margin-top: 85px;
@@ -2513,6 +2526,7 @@ h3 {
   align-content: stretch;
   justify-items: center;
 }
+
 .ElementosMultimedia {
   display: flex;
   padding: 0px 90px 0px 20px;
@@ -2528,6 +2542,7 @@ h3 {
   justify-content: flex-start;
   align-items: stretch;
 }
+
 .OrganizacionDelProducto {
   display: flex;
   margin-top: 420px;
@@ -2543,11 +2558,13 @@ h3 {
   align-items: stretch;
   padding: 0px 90px 0px 20px;
 }
+
 .containerCamaraP {
   margin-top: 50px;
   background-color: var(--color-dark);
   border: 5px solid #000;
 }
+
 .CamaraPaginaProducto {
   display: flex;
   position: absolute;
@@ -2563,6 +2580,7 @@ h3 {
   align-items: stretch;
   padding: 0px 90px 0px 20px;
 }
+
 .BotonesProducto {
   display: flex;
   margin-top: 1130px;
@@ -2577,6 +2595,7 @@ h3 {
   justify-content: space-around;
   align-items: stretch;
 }
+
 .BotonCrearProducto {
   cursor: pointer;
   display: inline-block;
@@ -2625,6 +2644,7 @@ h3 {
   opacity: 1;
   right: 0;
 }
+
 .BotonCrearProducto span {
   font-size: 1.5rem;
 }
@@ -2676,6 +2696,7 @@ h3 {
   opacity: 1;
   right: 0;
 }
+
 .BotonCancelarProducto span {
   font-size: 1.5rem;
 }
@@ -2697,36 +2718,44 @@ h3 {
   margin-bottom: 10px;
   font-size: larger;
 }
+
 .TITULONOMBREO {
   width: 150px;
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: larger;
 }
+
 .nombreProductoContentSelect {
   width: 500px;
 }
+
 #MarcaPro {
   width: 400px;
   margin-bottom: -10px;
 }
+
 #NombreProducto {
   width: 500px;
   background-color: var(--color-white);
   color: var(--color-black);
 }
+
 #TituloEstadoDelProducto {
   width: 500px;
   background-color: var(--color-white);
   color: var(--color-black);
 }
+
 .TituloContenedorEstadoDelProducto {
   margin-top: 20px;
 }
+
 .TituloContenedorPropiedadesDelProducto {
   margin-top: 5px;
   font-size: xx-large;
 }
+
 .TituloContenedorPropiedadesDelProductoO {
   width: 800px;
   margin-top: 0px;
@@ -2744,6 +2773,7 @@ h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
 .InformacionPro {
   display: flex;
   width: 25%;
@@ -2756,6 +2786,7 @@ h3 {
   padding: 3rem;
   padding-top: 0;
 }
+
 .DescripcionProContenedor {
   display: flex;
   width: 100%;
@@ -2770,6 +2801,7 @@ h3 {
   background-color: var(--color-white);
   color: var(--color-black);
 }
+
 #TituloEstadoGeneral {
   display: flex;
   width: 100%;
@@ -2804,6 +2836,7 @@ h3 {
   justify-content: space-evenly;
   align-items: start;
 }
+
 .InformacionGeneral {
   max-width: 25%;
   margin: 10px;
@@ -2821,6 +2854,7 @@ h3 {
   background-color: var(--color-white);
   color: var(--color-black);
 }
+
 div.Codigo {
   height: 450px;
 }
@@ -2829,14 +2863,17 @@ input#IdPro.form-control {
   width: 40%;
   background-color: #fff;
 }
+
 section.InformacionPro {
   height: 50px;
 }
+
 .tipoProContent {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 div.TipoProContenedor {
   width: 25%;
   margin: 0;
@@ -2865,6 +2902,7 @@ div.TipoProContenedor {
   width: 450px;
   height: 300px;
 }
+
 .containerCamaraP,
 #interactive.viewport canvas,
 video {
@@ -2873,6 +2911,7 @@ video {
   position: absolute;
   top: 120px;
 }
+
 #interactive.viewport canvas,
 video {
   width: 450px;
@@ -2887,11 +2926,13 @@ video.drawingBuffer {
   width: 450px;
   height: 300px;
 }
+
 .ProductCamara {
   margin-top: 20px;
   width: 500px;
   height: 300px;
 }
+
 .form-control-P {
   color: #ffffff;
   background-color: var(--color-dark-xx);
@@ -2899,6 +2940,7 @@ video.drawingBuffer {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
 }
+
 .form-control-PO {
   width: 50px;
   color: #ffffff;
@@ -2918,15 +2960,18 @@ video.drawingBuffer {
   align-content: stretch;
   flex-direction: row;
 }
+
 div.ExistenciasContenedor {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
 }
+
 .ProductosFormato {
   margin-top: 90px;
 }
+
 .perfil-usuario-avatar {
   display: flex;
   width: 130px;
@@ -2971,6 +3016,7 @@ div.ExistenciasContenedor {
   justify-content: space-evenly;
   padding-top: 100px;
 }
+
 /*========================================================================EstadoGeneralAdmin================================================*/
 .Tableros-General {
   padding: 60px;
@@ -2981,6 +3027,7 @@ div.ExistenciasContenedor {
   padding-top: 60px;
   padding-bottom: 0;
 }
+
 /*========================================================================loginEmpleado================================================*/
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredoka:wght@500&display=swap");
 
@@ -2998,6 +3045,7 @@ div.ExistenciasContenedor {
   padding: 10px 20px;
   max-width: 40%;
 }
+
 .col-sm-3 {
   color: #ffffff;
   background-color: rgba(160, 150, 150, 0.2);
@@ -3032,19 +3080,23 @@ div.ExistenciasContenedor {
   font-size: 15px;
   background-color: #757575cb;
 }
+
 #btnCarrito.btn-buy:hover {
   color: #fff;
   background-color: #342dbb;
   border-color: #1b1375;
 }
+
 #btnCarrito.btn-sell:hover {
   color: #fff;
   background-color: #32bb2d;
   border-color: #137516;
 }
+
 #btnCarrito.btn-delete {
   margin-left: 140px;
 }
+
 #btnCarrito.btn-delete:hover {
   color: #fff;
   background-color: #bb2d2d;
@@ -3142,11 +3194,13 @@ div.cardCarrito.col-sm-4 {
   margin: 0;
   box-sizing: border-box;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -3160,6 +3214,7 @@ div.cardCarrito.col-sm-4 {
   padding: 0;
   font-family: "Fredoka", sans-serif;
 }
+
 /*----------------------------PDF---------------------------------------*/
 
 .TablerosPDF {
@@ -3167,6 +3222,7 @@ div.cardCarrito.col-sm-4 {
   justify-content: space-evenly;
   padding-top: 90px;
 }
+
 iframe {
   border: 0;
   width: 80%;
@@ -3178,6 +3234,7 @@ iframe {
 .col_white_amrc {
   color: #fff;
 }
+
 .footerG {
   width: 100%;
   background-color: var(--color-dark);
@@ -3186,6 +3243,7 @@ iframe {
   margin-top: 20px;
   align-items: center;
 }
+
 .footerAdmin {
   width: 100%;
   background-color: var(--color-dark);
@@ -3194,10 +3252,12 @@ iframe {
   margin-top: 20px;
   align-items: center;
 }
+
 .pt2 {
   padding-top: 40px;
   margin-bottom: 20px;
 }
+
 .footerG p {
   font-size: 13px;
   color: #ccc;
@@ -3208,24 +3268,30 @@ iframe {
 .DescripcionFooter {
   padding-bottom: 15px;
 }
+
 .footerG_ul_amrc {
   margin: 0px;
   list-style-type: none;
   font-size: 14px;
   padding: 0px 0px 10px 0px;
 }
+
 .footerG_ul_amrc li {
   padding: 0px 0px 5px 0px;
 }
+
 .footerG_ul_amrc li a {
   color: #ccc;
 }
+
 .footerG_ul_amrc li a:hover {
   color: #00f7ff;
 }
+
 .fleft {
   float: left;
 }
+
 .padding-right {
   padding-right: 10px;
 }
@@ -3235,9 +3301,11 @@ iframe {
   list-style-type: none;
   padding: 0px;
 }
+
 .footerG_ul2_amrc li p {
   display: table;
 }
+
 .footerG_ul2_amrc li i {
   margin-top: 5px;
 }
@@ -3249,6 +3317,7 @@ iframe {
   padding-right: 30px;
   padding-top: 10px;
 }
+
 .footeG_bottom_ul_amrc {
   list-style-type: none;
   padding: 0px;
@@ -3258,9 +3327,11 @@ iframe {
   margin-bottom: 10px;
   margin-left: auto;
 }
+
 .footeG_bottom_ul_amrc li {
   display: inline;
 }
+
 .footeG_bottom_ul_amrc li a {
   color: #e1e1e1;
   margin: 0 12px;
@@ -3271,17 +3342,20 @@ iframe {
   margin: 15px auto 0 auto;
   list-style-type: none;
 }
+
 .social_footerG_ul li {
   padding-left: 20px;
   padding-top: 10px;
   float: left;
 }
+
 .social_footerG_ul li a {
   color: #e1e1e1;
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 50%;
 }
+
 .social_footerG_ul li a:hover {
   color: #000000;
   background-color: #ccc;
@@ -3289,11 +3363,13 @@ iframe {
   border-radius: 50%;
   transition: all 0.5s ease;
 }
+
 .social_footerG_ul li i {
   width: 20px;
   height: 20px;
   text-align: center;
 }
+
 .footer-col-G {
   position: relative;
   padding: 0 15px;
@@ -3318,6 +3394,7 @@ iframe {
   background: #2cd5ff;
   right: 25%;
 }
+
 .containerG {
   max-width: 720px;
   width: 100%;
@@ -3326,6 +3403,7 @@ iframe {
   margin-right: auto;
   margin-left: auto;
 }
+
 .col1 {
   float: left;
   width: 33.33%;
@@ -3334,6 +3412,7 @@ iframe {
   padding-top: 8px;
   padding-bottom: 8px;
 }
+
 .col2 {
   float: left;
   width: 33.33%;
@@ -3365,10 +3444,12 @@ iframe {
   transition: opacity 400ms ease-in;
   pointer-events: none;
 }
+
 .modalmask:target {
   opacity: 1;
   pointer-events: auto;
 }
+
 .modalbox {
   width: 400px;
   position: relative;
@@ -3379,22 +3460,27 @@ iframe {
   -moz-transition: all 500ms ease-in;
   transition: all 500ms ease-in;
 }
+
 .movedown {
   margin: 0 auto;
 }
+
 .rotate {
   margin: 10% auto;
   -webkit-transform: scale(-5, -5);
   transform: scale(-5, -5);
 }
+
 .resize {
   margin: 10% auto;
   width: 0;
   height: 0;
 }
+
 .modalmask:target .movedown {
   margin: 10% auto;
 }
+
 .modalmask:target .rotate {
   transform: rotate(360deg) scale(1, 1);
   -webkit-transform: rotate(360deg) scale(1, 1);
@@ -3426,10 +3512,12 @@ iframe {
   pointer-events: none;
   width: 500px;
 }
+
 .modalmask-terminos:target {
   opacity: 1;
   pointer-events: auto;
 }
+
 .modalbox {
   width: 400px;
   position: relative;
@@ -3440,22 +3528,27 @@ iframe {
   -moz-transition: all 500ms ease-in;
   transition: all 500ms ease-in;
 }
+
 .movedown {
   margin: 0 auto;
 }
+
 .rotate {
   margin: 10% auto;
   -webkit-transform: scale(-5, -5);
   transform: scale(-5, -5);
 }
+
 .resize {
   margin: 10% auto;
   width: 0;
   height: 0;
 }
+
 .modalmask:target .movedown {
   margin: 10% auto;
 }
+
 .modalmask:target .rotate {
   transform: rotate(360deg) scale(1, 1);
   -webkit-transform: rotate(360deg) scale(1, 1);
