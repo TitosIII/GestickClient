@@ -8,7 +8,7 @@ export default function TableroCard() {
                     <h3>Gestick</h3>
                 </div>
                 <div className="btn-containerTarjetaTablero">
-                    <button className="button2">Crear Sesión</button>
+                    <a href="/Carrito" className="button2">Crear Sesión</a>
                     <a href="/EstadoGeneralAdmin">
                         <button className="button2"><span> Finanzas</span></button>
                     </a>
