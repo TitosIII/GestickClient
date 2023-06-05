@@ -13,7 +13,7 @@ export default function Header() {
                 &#8801
             </label>
             <nav className="menu">
-                <a href="/Carrito">Carrito</a>
+                <a href="/Tablero">Puntos De Venta</a>
                 <a href="/InventarioProductos">Productos</a>
                 <a href="/Empleados">Empleados</a>
                 <a href="/EstadoGeneralAdmin">Estado General</a>
