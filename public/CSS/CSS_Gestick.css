@@ -3577,3 +3577,254 @@ iframe {
   background: #faac58;
   color: #222;
 }
+
+
+
+/*Descripcion Carrito*/
+
+
+/*---------------------------------------DescripcionCarrito---------------------*/
+.contenedorCarritoDesEmp{
+  width: 100%;
+  background-color:#033f49;
+  display: flex;
+  align-self: center;
+  margin: 15px;
+  margin-top: 30px;
+  height: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: stretch;
+  flex-direction: row;
+}
+.imgDesEmp{
+  background-image: url("../IMG/Decoration/Banner.webp");
+  width: 65%;
+  height: 25rem;
+  margin: 10px;
+}
+.contenidoCarritoDesEmp{
+  width: 100%;
+    background-color:#033f49;
+    display: flex;
+    align-self: center;
+    margin: 10px;
+    margin-top: 30px;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.titDesEmp{
+  display: contents;
+  width: 50%;
+  height: 25rem;
+}
+.idDesEmp{
+  margin: 10px;
+  padding-left: 1%;
+  display: contents;
+  
+}
+.idtitDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+  align-content: center;
+}
+.idnumDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+}
+.feDesEmp{
+  margin: 10px;
+  padding-left: 1%;
+  display: contents;
+}
+.fetitDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+}
+.fenumDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+}
+.ProListDesEmp{
+  display: flex;
+  height: 25%;
+}
+.ProDesEmp{
+  display: contents
+}
+.nompDesEmp, .imgpDesEmp,.fepDesEmp,.prepDesEmp,.canpDesEmp,.totDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+  align-content: center;
+  margin-top: 30px;
+}
+.connompDesEmp, .conimgpDesEmp,.confepDesEmp,.conprepDesEmp,.concanpDesEmp,.contotDesEmp{
+  height: 3rem;
+  font-size: 2rem;
+  margin: 10px;
+  padding-left: 1%;
+  align-content: center;
+  margin-top: 30px;
+}
+.totalDesEmp{
+  display: flex;
+    justify-content: space-around;
+    height: 10rem;
+    width: 100%;
+    font-size: 2rem;
+    margin: 10px;
+    padding-left: 1%;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    align-content: flex-start;
+
+}
+.datDesEmp{
+  width: 65%;
+  background-color:#033f49;
+  display: flex;
+  align-self: center;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 40rem;
+  height: 20%;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  flex-direction: row;
+  position: fixed;
+  justify-content: center;
+}
+.ticDesEmp{
+  width: 30%;
+    background-color: #033f49;
+    display: flex;
+    align-self: center;
+    margin: 10px;
+    margin-left: 66.3rem;
+    margin-right: 0;
+    margin-top: 40rem;
+    height: 20%;
+    align-content: space-around;
+    position: fixed;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.buttonDesEmp {
+  cursor: pointer;
+    display: flex;
+    border: 0;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: var(--color-light);
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 20px;
+    width: 13.8rem;
+    height: 7rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+    align-items: stretch;
+    margin-bottom: 60px;
+    align-content: center;
+}
+
+.buttonDesEmp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonDesEmp span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonDesEmp:hover span {
+  padding-right: 25px;
+}
+
+.buttonDesEmp:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonDesEmp2 {
+  cursor: pointer;
+  display: flex;
+  border: 0;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: rgb(176, 0, 0);
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 20px;
+  width: 13.8rem;
+  height: 7rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+  align-items: stretch;
+  margin-bottom: 60px;
+  align-content: center;
+}
+
+.buttonDesEmp2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonDesEmp2 span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonDesEmp2:hover span {
+  padding-right: 25px;
+}
+
+.buttonDesEmp2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
