@@ -44,10 +44,6 @@ export default function GraficasAdministrador() {
           <section className="TablerosG">
             <DashboardGESTICK results={table} />
           </section>
-          <div className="FooterAdmin">
-            {" "}
-            <FooterAdmin />
-          </div>
         </section>
       )}
     </section>

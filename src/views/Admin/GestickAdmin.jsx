@@ -34,7 +34,6 @@ export default function GestickAdmin() {
       )}
       <div className="FooterAdmin">
         {" "}
-        <FooterAdmin />
       </div>
     </section>
   );

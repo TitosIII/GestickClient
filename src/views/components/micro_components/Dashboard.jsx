@@ -131,7 +131,7 @@ const Dashboard = (props) => {
                     >
                         <StatBox
                             title={props.results.productosVendidosACTUALES}
-                            subtitle="Ventas Obtenidas"
+                            subtitle="Ventas Realizadas"
                             progress={(props.results.porcentajeVENTAACTUAL / 100)}
                             increase={props.results.porcentajeVENTAACTUAL + "%"}
                             icon={
@@ -150,7 +150,7 @@ const Dashboard = (props) => {
                     >
                         <StatBox
                             title={props.results.totalactual}
-                            subtitle="Clientes Nuevos: "
+                            subtitle="Clientes Nuevos"
                             progress={(props.results.porcentajeACTUAL / 100)}
                             increase={"  " + props.results.porcentajeACTUAL + "%"}
                             icon={
