@@ -24,7 +24,6 @@ export default function GestickAdminTable() {
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
-                        <th>Contraseña</th>
                         <th>Suspender</th>
                         <th>Borrar</th>
                     </tr>
@@ -38,7 +37,6 @@ export default function GestickAdminTable() {
                                 <td data-label="Nombre">{admins.AdNombre}</td>
                                 <td data-label="Apellido Paterno">{admins.AdAppat}</td>
                                 <td data-label="Apellido Materno">{admins.AdApmat}</td>
-                                <td data-label="Contraseña">{admins.AdContrasenna}</td>
                                 <td data-labe="Editar">
                                     <button className="button2" type="submit" onClick={() => navigate(`/EditarAdministrador/${admins.idAdmin}`)}>
                                         <span>Suspender</span>

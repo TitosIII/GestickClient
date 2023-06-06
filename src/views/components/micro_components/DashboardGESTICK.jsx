@@ -79,7 +79,7 @@ const DashboardGESTICK = (props) => {
                     justifyContent="center"
                 >
                     <StatBox
-                        title="1,325,134"
+                        title="1,071"
                         subtitle="Trafico Recibido"
                         progress="0.80"
                         increase="+43%"
@@ -207,23 +207,6 @@ const DashboardGESTICK = (props) => {
                             48,352 Personas Alcanzadas
                         </Typography>
                         <Typography>Incluye Usuarios Inactivos</Typography>
-                    </Box>
-                </Box>
-                <Box
-                    gridColumn="span 4"
-                    gridRow="span 2"
-                    backgroundColor={colors.primary[400]}
-                    padding="30px"
-                >
-                    <Typography
-                        variant="h5"
-                        fontWeight="600"
-                        sx={{ marginBottom: "15px" }}
-                    >
-                        Trafico Geografico
-                    </Typography>
-                    <Box height="200px">
-                        <GeographyChart isDashboard={true} />
                     </Box>
                 </Box>
             </Box>

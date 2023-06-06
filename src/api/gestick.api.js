@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const serverURL = import.meta.env.VITE_URL || "https://gestick-serverweb.up.railway.app" ||"http://localhost:3000";
+const serverURL = import.meta.env.VITE_URL || "http://localhost:3000";
 
 export const getAdminRequest = async () => {
-  return await axios.get(
-    `${serverURL}/TitosChampionsSonicAdrianJoshuaGael`
-  );
+  return await axios.get(`${serverURL}/TitosChampionsSonicAdrianJoshuaGael`);
 };
 
 export const createAdminRequest = async (data) =>
@@ -21,10 +19,7 @@ export const getAdminsRequest = async (idAdmin) =>
   await axios.get(`${serverURL}/EditarAdministrador/${idAdmin}`);
 
 export const updateAdminRequest = async (idAdmin, newFieldAdmin) =>
-  await axios.put(
-    `${serverURL}/EditarAdministrador/${idAdmin}`,
-    newFieldAdmin
-  );
+  await axios.put(`${serverURL}/EditarAdministrador/${idAdmin}`, newFieldAdmin);
 
 export const logAdmin = async (data) =>
   await axios.post(`${serverURL}/loginAdiministrador`, data);
@@ -36,7 +31,10 @@ export const signEmp = async (data) =>
   await axios.post(`${serverURL}/signEmpleado`, data);
 
 export const uploadImage = async (data) =>
-  await axios.post("https://api.cloudinary.com/v1_1/dkhzhsqzh/image/upload", data);
+  await axios.post(
+    "https://api.cloudinary.com/v1_1/dkhzhsqzh/image/upload",
+    data
+  );
 
 export const getProducts = async (data) =>
   await axios.post(`${serverURL}/inventario`, data);
@@ -63,7 +61,7 @@ export const getAProduct = async (data) =>
   await axios.post(`${serverURL}/getAProduct`, data);
 
 export const modifyProduct = async (data) =>
-await axios.post(`${serverURL}/modifyProduct`, data);
+  await axios.post(`${serverURL}/modifyProduct`, data);
 
 export const deleteProduct = async (data) =>
   await axios.post(`${serverURL}/deleteProduct`, data);
@@ -75,10 +73,10 @@ export const dashboardADMIN = async (data) =>
   await axios.post(`${serverURL}/GraficasGestick`, data);
 
 export const ventas = async (data) =>
-    await axios.post(`${serverURL}/Ventas`, data)
+  await axios.post(`${serverURL}/Ventas`, data);
 
 export const getTradeMark = async () =>
   await axios.get(`${serverURL}/getTradeMark`);
 
 export const historyPRODUCT = async (data) =>
-    await axios.get(`${serverURL}/historialVENTA`, data)
+  await axios.get(`${serverURL}/historialVENTA`, data);

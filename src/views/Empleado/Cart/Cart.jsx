@@ -198,7 +198,7 @@ function Cart() {
           </main>
           <aside>
             <div className="camara">
-              <Camara renderCart={renderCart} table={table} />
+              <Camara renderCart={renderCart} table={table} getExistences={getExistences} />
             </div>
           </aside>
         </div>

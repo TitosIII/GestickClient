@@ -4,9 +4,11 @@ import Quagga from "quagga";
 
 const Scanner = (props) => {
   const { onDetected } = props;
+  const quaggaConfig = config;
+  quaggaConfig.frequency = 1;
 
   useEffect(() => {
-    Quagga.init(config, (err) => {
+    Quagga.init(quaggaConfig, (err) => {
       if (err) {
         console.log(err, "error msg");
       }
