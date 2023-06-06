@@ -33,11 +33,9 @@ export default function Productos() {
 
   async function handleFormSubmit(values) {
     console.log(values);
-    if (values.img) {
-      const data = new FormData();
-      data.append("file", values.img);
-      data.append("upload_preset", "gestick");
-    }
+    const data = new FormData();
+    data.append("file", values.img);
+    data.append("upload_preset", "gestick");
     var response;
     try {
       if (idProduct) {
