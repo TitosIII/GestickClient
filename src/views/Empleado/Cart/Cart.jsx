@@ -25,7 +25,6 @@ function Cart() {
 
   ///Función para renderizar el carrito.
   function renderCart(obj, add) {
-    console.log(obj);
     carrito.splice(0, carrito.length);
     if (add) {
       codeCart.push(obj);
@@ -76,7 +75,6 @@ function Cart() {
     const { data } = await getProducts({
       idAdmin: Session.get(Session.get("type") == 1 ? "id" : "idAdmin"),
     });
-    console.log(data);
     data.forEach((item, index) => {
       if (item.PrExistencias === 0) {
         data.splice(index, 1);

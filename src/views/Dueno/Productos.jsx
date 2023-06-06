@@ -81,23 +81,11 @@ export default function Productos() {
         tradeMark: data.Marca_idMarca,
         exis: data.PrExistencias,
         img: data.PrURLimg,
+        code: data.Pcodigo,
         idAdmin: Session.get("id"),
       })
     );
   }, []);
-
-  const checkoutSchema = yup.object().shape({
-    idAdmin: yup
-      .string()
-      .required("Campo Obligatorio")
-      .min(6, `Ingresa Un ID Completo`)
-      .max(6, `Ingresa Un ID De 6 Digitos`),
-    password: yup
-      .string()
-      .required("Campo Obligatorio")
-      .min(8, `Ingresa Más De 7 Digitos`)
-      .max(150, `Ingresa Una Contraseña Valida`),
-  });
 
   if (Session.get("type") == 1) {
     return (
@@ -329,8 +317,16 @@ export default function Productos() {
                           placeholder="00000000"
                           value={values.code}
                           onChange={handleChange}
-                          disabled
                         />
+                        <button
+                          className="btn"
+                          type="button"
+                          onClick={() => {
+                            setFieldValue("code", "");
+                          }}
+                        >
+                          Borrar
+                        </button>
                         <CamaraP {...{ setFieldValue }} />
                       </div>
                     </div>

@@ -4,12 +4,17 @@ import React, { useState } from "react";
 export default function Camara({ renderCart, table }) {
   const [camera, setCamera] = useState(false);
   const [result, setResult] = useState(null);
+  var freeze = false;
 
   const onDetected = (result) => {
     table.forEach(({ idProductos, PrNombre, PrPrecio, Pcodigo }) => {
-      if (Pcodigo == result) {
+      if (Pcodigo == result && !freeze) {
+        freeze = true;
         setResult(`Añadiendo: ${PrNombre}`);
-        renderCart({idProductos, PrNombre, PrPrecio}, true);
+        renderCart({ idProductos, PrNombre, PrPrecio }, true);
+        setTimeout(() => {
+          freeze = false;
+        },1500);
       }
     });
   };

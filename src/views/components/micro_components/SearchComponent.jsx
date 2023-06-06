@@ -16,8 +16,6 @@ const SearchComponent = ({ baseDeDatos, renderCart, getExistences }) => {
     : baseDeDatos.filter((dato) =>
         dato.PrNombre.toLowerCase().includes(search.toLocaleLowerCase())
       );
-  
-  console.log(results);
 
   //renderizamos la vista
   return (
