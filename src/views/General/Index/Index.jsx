@@ -33,7 +33,7 @@ function Index() {
             <nav className="menu">
               <a href="/">Inicio</a>
               <a href="/SobreNosotros">Contactanos</a>
-              <a href="/loginEmpleado">Iniciar Sesión</a>
+              <a href="/loginAdministrador">Iniciar Sesión</a>
               <label htmlFor="check" className="esconder-menu">
                 &#215
               </label>

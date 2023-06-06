@@ -24,6 +24,7 @@ import SupportAdmin from "./views/components/SoporteTECNICO/Admin/Soporte/index.
 import SupportGestick from "./views/components/SoporteTECNICO/Admin/Soporte/SupportGestick.jsx"
 import SupportEngine from "./views/components/SoporteTECNICO/SupportEngine.jsx"
 import ConfirmModal from "./views/components/micro_components/ConfirmModal.jsx";
+import Carrito from "./views/Dueno/Carrito.jsx";
 
 export default function App() {
   Session.config(true);
@@ -56,6 +57,7 @@ export default function App() {
         <Route path="/EditarProducto/:idProduct" element={<Productos />} />
         <Route path="/HistorySell" element={<HistorialVenta />} />
         <Route path="/EstadoGeneralAdmin" element={<EstadoGeneralAdmin />} />
+        <Route path="/Venta/:idCarrito" element={<Carrito/>} />
 
         //Empleado
         <Route path="/loginEmpleado" element={<LoginEmpleado />} />
