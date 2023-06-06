@@ -33,9 +33,11 @@ export default function Productos() {
 
   async function handleFormSubmit(values) {
     console.log(values);
-    const data = new FormData();
-    data.append("file", values.img);
-    data.append("upload_preset", "gestick");
+    if (values.img) {
+      const data = new FormData();
+      data.append("file", values.img);
+      data.append("upload_preset", "gestick");
+    }
     var response;
     try {
       if (idProduct) {
@@ -45,8 +47,10 @@ export default function Productos() {
         }
         response = await modifyProduct(values);
       } else {
-        const res = await uploadImage(data);
-        values.img = res.data.secure_url;
+        if (values.img) {
+          const res = await uploadImage(data);
+          values.img = res.data.secure_url;
+        }
         response = await addProduct(values);
       }
 
@@ -71,20 +75,22 @@ export default function Productos() {
       setTradeMarkList(results.data);
     });
 
-    getAProduct({ idProduct }).then(({ data }) =>
-      setInitialValues({
-        idP: idProduct,
-        name: data.PrNombre,
-        desc: data.PrDescripcion,
-        type: data.Categoria_idCategoria,
-        price: data.PrPrecio,
-        tradeMark: data.Marca_idMarca,
-        exis: data.PrExistencias,
-        img: data.PrURLimg,
-        code: data.Pcodigo,
-        idAdmin: Session.get("id"),
-      })
-    );
+    if (idProduct) {
+      getAProduct({ idProduct }).then(({ data }) =>
+        setInitialValues({
+          idP: idProduct,
+          name: data.PrNombre,
+          desc: data.PrDescripcion,
+          type: data.Categoria_idCategoria,
+          price: data.PrPrecio,
+          tradeMark: data.Marca_idMarca,
+          exis: data.PrExistencias,
+          img: data.PrURLimg,
+          code: data.Pcodigo,
+          idAdmin: Session.get("id"),
+        })
+      );
+    }
   }, []);
 
   if (Session.get("type") == 1) {
