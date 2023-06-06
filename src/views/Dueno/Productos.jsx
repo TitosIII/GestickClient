@@ -350,7 +350,7 @@ export default function Productos() {
                             : "Registrar"}
                         </span>
                       </button>
-                      <button className="BotonCancelarProducto">
+                      <button className="BotonCancelarProducto" onClick={()=>{window.location.href = '/InventarioProductos'}}>
                         {" "}
                         <span>Cancelar</span>{" "}
                       </button>
