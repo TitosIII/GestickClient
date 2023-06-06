@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverURL = import.meta.env.VITE_URL || "http://localhost:3000";
+const serverURL = import.meta.env.VITE_URL || "https://gestick-serverweb.up.railway.app" ||"http://localhost:3000";
 
 export const getAdminRequest = async () => {
   return await axios.get(
@@ -73,6 +73,9 @@ export const dashboardDUENNO = async (data) =>
 
 export const dashboardADMIN = async (data) =>
   await axios.post(`${serverURL}/GraficasGestick`, data);
+
+export const ventas = async (data) =>
+    await axios.post(`${serverURL}/Ventas`, data)
 
 export const getTradeMark = async () =>
   await axios.get(`${serverURL}/getTradeMark`);

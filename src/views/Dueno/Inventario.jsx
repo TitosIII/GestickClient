@@ -32,7 +32,6 @@ export default function Inventario() {
   window.addEventListener("load", () => setLoading(false));
   console.log(loading);
 
-  if (Session.get("type") == 1) {
     return (
       <>
         {loading ? (
@@ -75,12 +74,12 @@ export default function Inventario() {
                       </p>
                     </div>
                     <div className="stars">
-                      <a
+                      <button
                         className="saber-mas-P"
                         href={`/EditarProducto/${row.idProductos}`}
                       >
                         Editar
-                      </a>
+                      </button>
                       <button
                         className="saber-mas-P"
                         onClick={() => {
@@ -99,7 +98,5 @@ export default function Inventario() {
         )}
       </>
     );
-  } else {
-    window.location.href = "/loginAdministrador";
-  }
+ 
 }

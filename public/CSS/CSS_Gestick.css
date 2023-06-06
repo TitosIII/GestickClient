@@ -83,6 +83,7 @@ body {
 
 .mostrar-menu{
   order: 1;
+  color: white;
 }
 
 
@@ -133,6 +134,7 @@ body {
   transition: 0, 4s;
 }
 
+
 .mostrar-menu {
   order: 1;
 }
@@ -145,6 +147,7 @@ body {
 
 #check {
   display: none;
+  
 }
 
 .HeaderPrincipal {
@@ -188,6 +191,7 @@ body {
   /*Menu*/
   .mostrar-menu, .esconder-menu{
       display: block;
+      color: white;
   }
 
   .menu{
@@ -1631,7 +1635,9 @@ section#course.course div.box-container div.box img {
 .btn-outline-dark {
   border: 2px solid var(--color-dark-xx);
 }
-
+#AE,#AP,#AM, #Name,#PW{
+  color: white;
+}
 .form-control {
   color: rgb(255, 255, 255);
   background-color: var(--color-dark-xx);
@@ -2409,7 +2415,7 @@ h3 {
 
 .product {
   position: relative;
-  background-color: rgba(160, 150, 150, 0.2);
+  background-color: #ffffff;
   width: 180px;
   height: 330px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -2445,6 +2451,7 @@ h3 {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  color: black;
 }
 
 .namePrice h4 {
@@ -2452,6 +2459,7 @@ h3 {
   text-transform: capitalize;
   color: var(--textColor);
   margin: 5px;
+  
 }
 
 .namePrice span {
@@ -2486,6 +2494,7 @@ h3 {
   font-size: 11px;
   line-height: 24px;
   margin: 5px;
+  color: #000;
 }
 
 .namePrice span {
@@ -2865,6 +2874,7 @@ input#IdPro.form-control {
   background-color: #fff;
 }
 
+
 section.InformacionPro {
   height: 50px;
 }
@@ -3045,6 +3055,9 @@ div.ExistenciasContenedor {
   padding-left: 15px;
   padding: 10px 20px;
   max-width: 40%;
+}
+#items{
+  color: white;
 }
 
 .col-sm-3 {
